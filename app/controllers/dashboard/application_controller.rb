@@ -4,15 +4,23 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
     @sidebar = sidebar(t('faalis.engine_name')) do |s|
       s.faalis_entries
 
-      # Put your sidebar entries in here like this:
-      #
-      # s.menu(title, icon: 'fa fa-book') do
-      #   s.item(title,
-      #          url: main_app.dashboard_books_path,
-      #          model: 'Book')
-      # end
-      #
-      # For more information take a look at `sidebar` section of Faalis guides.
+      s.menu(t('podcasts'), icon: 'fa fa-volume-up') do
+         s.item(t('episodes'),
+                url: main_app.dashboard_episodes_path,
+                model: 'Podcasts::Episode')
+         s.item(t('participants'),
+                url: main_app.dashboard_participants_path,
+                model: 'Podcasts::Participant')
+         s.item(t('parties'),
+                url: main_app.dashboard_parties_path,
+                model: 'Podcasts::Party')
+         s.item(t('links'),
+                url: main_app.dashboard_links_path,
+                model: 'Podcasts::Link')
+
+       end
+
+
     end
   end
 end
