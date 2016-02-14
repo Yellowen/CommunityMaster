@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  href: MyString
+  desc: MyText
+  podcasts_episode_id: 1
+
+two:
+  title: MyString
+  href: MyString
+  desc: MyText
+  podcasts_episode_id: 1
