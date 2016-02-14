@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   in_dashboard do
     scope :podcasts do
       resources :episodes
+      resources :parties
+      resources :participants
+      resources :links
     end
   end
 end
