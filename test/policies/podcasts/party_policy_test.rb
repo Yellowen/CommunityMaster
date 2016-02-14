@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EpisodePolicyTest < ActiveSupport::TestCase
+class Podcasts::PartyPolicyTest < ActiveSupport::TestCase
 
   def test_scope
   end

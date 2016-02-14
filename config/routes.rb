@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
 
   in_dashboard do
+    resources :participants
+    resources :parties
+    resources :links
     namespace :podcasts do
       resources :episodes
       resources :parties
