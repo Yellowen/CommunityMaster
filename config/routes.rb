@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     # Your API routes goes here.
   end
 
+
   in_dashboard do
-    scope :podcasts do
+    namespace :podcasts do
       resources :episodes
       resources :parties
       resources :participants

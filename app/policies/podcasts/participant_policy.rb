@@ -1,4 +1,4 @@
-class ParticipantPolicy < ApplicationPolicy
+class Podcasts::ParticipantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
