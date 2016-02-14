@@ -11,5 +11,7 @@ class CreatePodcastsParticipants < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    domain_aware :podcasts_participants
   end
 end

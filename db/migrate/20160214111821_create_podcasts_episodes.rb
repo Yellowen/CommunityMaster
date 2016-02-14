@@ -14,5 +14,6 @@ class CreatePodcastsEpisodes < ActiveRecord::Migration[5.0]
     add_attachment :podcasts_episodes, :cover
 
     add_index :podcasts_episodes, :number
+    domain_aware :podcasts_episodes
   end
 end

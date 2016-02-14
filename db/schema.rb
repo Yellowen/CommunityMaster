@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160214112747) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.integer  "domain_id"
+    t.index ["domain_id"], name: "index_podcasts_episodes_on_domain_id"
     t.index ["number"], name: "index_podcasts_episodes_on_number"
   end
 
@@ -98,6 +100,8 @@ ActiveRecord::Schema.define(version: 20160214112747) do
     t.integer  "episode_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "domain_id"
+    t.index ["domain_id"], name: "index_podcasts_links_on_domain_id"
   end
 
   create_table "podcasts_participants", force: :cascade do |t|
@@ -110,14 +114,18 @@ ActiveRecord::Schema.define(version: 20160214112747) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "domain_id"
+    t.index ["domain_id"], name: "index_podcasts_participants_on_domain_id"
   end
 
   create_table "podcasts_parties", force: :cascade do |t|
     t.integer  "episode_id"
     t.integer  "participant_id"
-    t.boolean  "host"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "host",           default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "domain_id"
+    t.index ["domain_id"], name: "index_podcasts_parties_on_domain_id"
   end
 
 end
