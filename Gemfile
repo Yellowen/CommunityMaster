@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
-
+source 'http://rails-assets.org' do
+  gem 'rails-assets-sugar'
+  gem 'rails-assets-bootstrap-rtl'
+  gem 'rails-assets-jquery-knob'
+  gem 'rails-assets-bootstrap-daterangepicker'
+  gem 'rails-assets-jquery-sparkline'
+  gem 'rails-assets-jquery-icheck'
+  gem 'rails-assets-admin-lte'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -43,5 +51,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'yellowen-misc'
 end
 
+gem 'faalis', path: '../Faalis/'
+
+gem 'jquery-turbolinks'
