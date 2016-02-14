@@ -8,5 +8,11 @@ class CreatePodcastsEpisodes < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_attachment :podcasts_episodes, :ogg
+    add_attachment :podcasts_episodes, :mp3
+    add_attachment :podcasts_episodes, :cover
+
+    add_index :podcasts_episodes, :number
   end
 end
