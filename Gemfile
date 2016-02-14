@@ -10,7 +10,7 @@ source 'http://rails-assets.org' do
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.0.beta2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -54,6 +54,9 @@ group :development do
   gem 'yellowen-misc'
 end
 
-gem 'faalis', path: '../Faalis/'
-
 gem 'jquery-turbolinks'
+
+gem 'faalis',          path: '../Faalis/'
+gem 'faalis-comments', path: '../faalis_comments'
+gem 'globalize',       path: '../globalize'
+gem 'faalis-page',     path: '../faalis_page'
