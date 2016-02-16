@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   mount Faalis::Engine => '/'
   mount Faalis::Comments::Engine => '/'
 
@@ -17,5 +19,9 @@ Rails.application.routes.draw do
       resources :participants
       resources :links
     end
+  end
+
+  default_site(self) do
+    root 'welcome#index'
   end
 end

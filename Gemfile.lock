@@ -51,7 +51,7 @@ PATH
 PATH
   remote: ../site_framework
   specs:
-    site_framework (3.2.0)
+    site_framework (4.0.0)
       orm_adapter
       railties (> 3)
 
@@ -446,6 +446,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   paperclip
+  quiet_assets
   rails (= 5.0.0.beta2)
   rails-assets-admin-lte!
   rails-assets-bootstrap-daterangepicker!
