@@ -24,6 +24,9 @@
 #
 
 class Podcasts::Episode < ActiveRecord::Base
+
+  acts_as_commentable
+
   include  Faalis::Concerns::Authorizable
 
   belongs_to :user, class_name: 'Faalis::User'

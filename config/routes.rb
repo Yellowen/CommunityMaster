@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Faalis::Engine => '/'
-  mount Faalis::Comments => '/'
+  mount Faalis::Comments::Engine => '/'
 
   api_routes do
     # Your API routes goes here.

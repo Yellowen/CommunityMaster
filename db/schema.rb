@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214112747) do
+ActiveRecord::Schema.define(version: 20160216123050) do
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "faalis_comments", force: :cascade do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "title"
+    t.text     "body"
+    t.string   "subject"
+    t.integer  "user_id",          null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "domain_id"
+    t.index ["commentable_id", "commentable_type"], name: "index_faalis_comments_on_commentable_id_and_commentable_type"
+    t.index ["domain_id"], name: "index_faalis_comments_on_domain_id"
+    t.index ["user_id"], name: "index_faalis_comments_on_user_id"
   end
 
   create_table "faalis_groups", force: :cascade do |t|
