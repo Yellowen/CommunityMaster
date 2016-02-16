@@ -17,9 +17,14 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
          s.item(t('links'),
                 url: main_app.dashboard_podcasts_links_path,
                 model: 'Podcasts::Link')
+      end
 
-       end
+      s.menu(t('commnts'), icon: 'fa fa-comment') do
+         s.item(t('comments'),
+                url: faalis_comments.dashboard_comments_path,
+                model: 'Faalis::Comments::Comment')
 
+      end
 
     end
   end
