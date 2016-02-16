@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216123050) do
+ActiveRecord::Schema.define(version: 20160216145246) do
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
@@ -144,6 +144,24 @@ ActiveRecord::Schema.define(version: 20160216123050) do
     t.datetime "updated_at",                     null: false
     t.integer  "domain_id"
     t.index ["domain_id"], name: "index_podcasts_parties_on_domain_id"
+  end
+
+  create_table "site_framework_domains", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "site_id"
+    t.integer  "parent_id"
+    t.boolean  "alias",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name"], name: "index_site_framework_domains_on_name", unique: true
+  end
+
+  create_table "site_framework_sites", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "default_template", default: ""
   end
 
 end
