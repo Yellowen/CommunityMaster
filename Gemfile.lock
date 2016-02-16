@@ -34,13 +34,6 @@ PATH
       faalis (~> 2)
 
 PATH
-  remote: ../faalis_page
-  specs:
-    faalis-page (1.0.0)
-      faalis
-      globalize
-
-PATH
   remote: ../globalize
   specs:
     globalize (5.2.0)
@@ -440,7 +433,6 @@ DEPENDENCIES
   devise (~> 4.0.0.beta1)
   faalis!
   faalis-comments!
-  faalis-page!
   globalize!
   jbuilder (~> 2.0)
   jquery-rails
@@ -465,4 +457,4 @@ DEPENDENCIES
   yellowen-misc
 
 BUNDLED WITH
-   1.10.6
+   1.11.0

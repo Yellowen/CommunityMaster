@@ -62,7 +62,7 @@ gem 'faalis',          path: '../Faalis/'
 gem 'faalis-comments', path: '../faalis_comments'
 
 gem 'globalize',       path: '../globalize', require: false
-gem 'faalis-page',     path: '../faalis_page'
+#gem 'faalis-page',     path: '../faalis_page'
 
 gem 'paperclip'
 gem 'site_framework',  path: '../site_framework'
