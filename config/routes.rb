@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     end
   end
 
+  sites(self) do
+    root 'welcome#index'
+  end
+
   default_site(self) do
     root 'welcome#index'
   end
