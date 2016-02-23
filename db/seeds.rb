@@ -18,7 +18,7 @@ SiteFramework::Domain.create!(site: radio_boot,
 
 tech5 = SiteFramework::Site.create!(title: 'Tech5',
   description: 'پادکست تک فایو کار مشترکی از سلام دنیا و رادیو بوت',
-  default_template: 'radio_boot')
+  default_template: 'tech5')
 
 SiteFramework::Domain.create!(site: tech5,
   name:'tech5.ir',
