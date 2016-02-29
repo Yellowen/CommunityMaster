@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216145246) do
+ActiveRecord::Schema.define(version: 20160229124336) do
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
@@ -54,6 +54,27 @@ ActiveRecord::Schema.define(version: 20160216145246) do
     t.integer "user_id"
     t.integer "group_id"
     t.index ["user_id", "group_id"], name: "by_user_and_group", unique: true
+  end
+
+  create_table "faalis_media_files", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "faalis_media_images", force: :cascade do |t|
+    t.string   "caption"
+    t.text     "subcaption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "faalis_media_videos", force: :cascade do |t|
+    t.string   "caption"
+    t.text     "subcaption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "faalis_permissions", force: :cascade do |t|
