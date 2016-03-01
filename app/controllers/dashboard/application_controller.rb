@@ -3,6 +3,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
   def setup_sidebar
     @sidebar = sidebar(t('faalis.engine_name')) do |s|
       s.faalis_entries
+      s.media_entries
 
       s.menu(t('podcasts'), icon: 'fa fa-volume-up') do
          s.item(t('episodes'),
@@ -23,8 +24,9 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
          s.item(t('comments'),
                 url: faalis_comments.dashboard_comments_path,
                 model: 'Faalis::Comments::Comment')
-
       end
+
+
 
     end
   end
