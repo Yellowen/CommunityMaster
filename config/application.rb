@@ -22,5 +22,12 @@ module CommunityMaster
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.paths << "#{Rails.root}/templates/assets/stylesheets"
+    config.assets.paths << "#{Rails.root}/templates/assets/javascripts"
+
+  end
+
+  def self.external_view_path
+    "#{Rails.root}/templates/views/"
   end
 end
