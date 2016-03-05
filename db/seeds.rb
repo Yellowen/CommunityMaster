@@ -23,3 +23,11 @@ tech5 = SiteFramework::Site.create!(title: 'Tech5',
 SiteFramework::Domain.create!(site: tech5,
   name:'tech5.ir',
   alias: 'www.tech5.ir')
+
+
+ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاسپین ایده ویرا',
+  description: 'بزرگترین توزیع کننده انواع کالا و محصولات داخلی و خارجی، در حوزه های گوناگون بازرگانی و فروش',
+  default_template: 'superfine')
+
+SiteFramework::Domain.create!(site: ciwic,
+  name: 'ciwic.local')
