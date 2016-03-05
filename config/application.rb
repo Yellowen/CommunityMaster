@@ -26,8 +26,4 @@ module CommunityMaster
     config.assets.paths << "#{Rails.root}/../templates/assets/javascripts"
 
   end
-
-  def self.external_view_path
-    "#{Rails.root}/../templates/views/"
-  end
 end
