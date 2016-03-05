@@ -29,4 +29,5 @@ ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاس�
   description: 'بزرگترین توزیع کننده انواع کالا و محصولات داخلی و خارجی، در حوزه های گوناگون بازرگانی و فروش',
   default_template: 'superfine')
 
-SiteFramework::Domain.create!(sie: 'ciwic.local')
+SiteFramework::Domain.create!(site: ciwic,
+  name: 'ciwic.local')
