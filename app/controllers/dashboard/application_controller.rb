@@ -4,6 +4,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
     @sidebar = sidebar(t('faalis.engine_name')) do |s|
       s.faalis_entries
       s.media_entries
+      s.page_entries
 
       s.menu(t('podcasts'), icon: 'fa fa-volume-up') do
          s.item(t('episodes'),

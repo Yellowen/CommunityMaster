@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302102325) do
+ActiveRecord::Schema.define(version: 20160306114625) do
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
@@ -91,6 +91,22 @@ ActiveRecord::Schema.define(version: 20160302102325) do
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
   end
+
+  create_table "faalis_page_pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "layout",       default: "application"
+    t.string   "description"
+    t.string   "tags"
+    t.string   "permalink"
+    t.integer  "user_id"
+    t.text     "raw_content"
+    t.boolean  "members_only", default: false
+    t.boolean  "published",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink"
 
   create_table "faalis_permissions", force: :cascade do |t|
     t.string   "model"
