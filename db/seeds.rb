@@ -27,7 +27,7 @@ SiteFramework::Domain.create!(site: tech5,
 
 ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاسپین ایده ویرا',
   description: 'بزرگترین توزیع کننده انواع کالا و محصولات داخلی و خارجی، در حوزه های گوناگون بازرگانی و فروش',
-  default_template: 'superfine')
+  default_template: 'canvas')
 
 SiteFramework::Domain.create!(site: ciwic,
   name: 'ciwic.local')

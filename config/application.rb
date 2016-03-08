@@ -24,6 +24,7 @@ module CommunityMaster
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.paths << "#{Rails.root}/../templates/assets/stylesheets"
     config.assets.paths << "#{Rails.root}/../templates/assets/javascripts"
+        config.assets.paths << "#{Rails.root}/../templates/assets/fonts"
 
   end
 end
