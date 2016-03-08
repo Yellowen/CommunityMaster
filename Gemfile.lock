@@ -41,6 +41,12 @@ PATH
       paperclip
 
 PATH
+  remote: ../faalis_page
+  specs:
+    faalis-page (2.0.0)
+      faalis
+
+PATH
   remote: ../site_framework
   specs:
     site_framework (4.1.0)
@@ -427,6 +433,7 @@ DEPENDENCIES
   faalis!
   faalis-comments!
   faalis-media!
+  faalis-page!
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
