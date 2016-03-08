@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306114625) do
+ActiveRecord::Schema.define(version: 20160308095909) do
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20160306114625) do
     t.string   "permalink"
     t.integer  "user_id"
     t.text     "raw_content"
+    t.text     "content"
     t.boolean  "members_only", default: false
     t.boolean  "published",    default: false
     t.datetime "created_at"
