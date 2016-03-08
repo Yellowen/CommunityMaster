@@ -27,12 +27,6 @@ PATH
       turbolinks
 
 PATH
-  remote: ../L
-  specs:
-    the-L (0.1.0)
-      pry-rails
-
-PATH
   remote: ../faalis_comments
   specs:
     faalis-comments (0.2.0)
@@ -461,7 +455,6 @@ DEPENDENCIES
   site_framework!
   spring
   sqlite3
-  the-L!
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
