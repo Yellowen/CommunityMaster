@@ -18,7 +18,7 @@ PATH
       omniauth
       orm_adapter
       pundit
-      rails (>= 4.2.0)
+      rails
       rails-assets-sugar (= 1.4.1)
       rails-i18n
       sass-rails
@@ -237,6 +237,7 @@ GEM
       mimemagic (= 0.3.0)
     parser (2.3.0.6)
       ast (~> 2.2)
+    pg (0.18.4)
     polyamorous (1.3.0)
       activerecord (>= 3.0)
     powerpack (0.1.1)
@@ -441,6 +442,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   paperclip
+  pg
   quiet_assets
   rails (= 5.0.0.beta3)
   rails-assets-admin-lte!

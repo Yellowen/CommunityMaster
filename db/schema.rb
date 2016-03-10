@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160308095909) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
     t.datetime "created_at"
@@ -34,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer  "domain_id"
   end
 
-  add_index "faalis_comments", ["commentable_id", "commentable_type"], name: "index_faalis_comments_on_commentable_id_and_commentable_type"
-  add_index "faalis_comments", ["domain_id"], name: "index_faalis_comments_on_domain_id"
-  add_index "faalis_comments", ["user_id"], name: "index_faalis_comments_on_user_id"
+  add_index "faalis_comments", ["commentable_id", "commentable_type"], name: "index_faalis_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "faalis_comments", ["domain_id"], name: "index_faalis_comments_on_domain_id", using: :btree
+  add_index "faalis_comments", ["user_id"], name: "index_faalis_comments_on_user_id", using: :btree
 
   create_table "faalis_groups", force: :cascade do |t|
     t.string   "name"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.datetime "updated_at"
   end
 
-  add_index "faalis_groups", ["role"], name: "index_faalis_groups_on_role", unique: true
+  add_index "faalis_groups", ["role"], name: "index_faalis_groups_on_role", unique: true, using: :btree
 
   create_table "faalis_groups_permissions", force: :cascade do |t|
     t.integer "permission_id"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer "group_id"
   end
 
-  add_index "faalis_groups_users", ["user_id", "group_id"], name: "by_user_and_group", unique: true
+  add_index "faalis_groups_users", ["user_id", "group_id"], name: "by_user_and_group", unique: true, using: :btree
 
   create_table "faalis_media_files", force: :cascade do |t|
     t.string   "title"
@@ -107,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.datetime "updated_at"
   end
 
-  add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink"
+  add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink", using: :btree
 
   create_table "faalis_permissions", force: :cascade do |t|
     t.string   "model"
@@ -116,7 +119,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.datetime "updated_at"
   end
 
-  add_index "faalis_permissions", ["model"], name: "index_faalis_permissions_on_model"
+  add_index "faalis_permissions", ["model"], name: "index_faalis_permissions_on_model", using: :btree
 
   create_table "faalis_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -138,9 +141,9 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.datetime "updated_at"
   end
 
-  add_index "faalis_users", ["email"], name: "index_faalis_users_on_email", unique: true
-  add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true
-  add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true
+  add_index "faalis_users", ["email"], name: "index_faalis_users_on_email", unique: true, using: :btree
+  add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true, using: :btree
+  add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true, using: :btree
 
   create_table "podcasts_episodes", force: :cascade do |t|
     t.string   "title"
@@ -164,8 +167,8 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_episodes", ["domain_id"], name: "index_podcasts_episodes_on_domain_id"
-  add_index "podcasts_episodes", ["number"], name: "index_podcasts_episodes_on_number"
+  add_index "podcasts_episodes", ["domain_id"], name: "index_podcasts_episodes_on_domain_id", using: :btree
+  add_index "podcasts_episodes", ["number"], name: "index_podcasts_episodes_on_number", using: :btree
 
   create_table "podcasts_links", force: :cascade do |t|
     t.string   "title"
@@ -177,7 +180,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_links", ["domain_id"], name: "index_podcasts_links_on_domain_id"
+  add_index "podcasts_links", ["domain_id"], name: "index_podcasts_links_on_domain_id", using: :btree
 
   create_table "podcasts_participants", force: :cascade do |t|
     t.string   "name"
@@ -192,7 +195,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_participants", ["domain_id"], name: "index_podcasts_participants_on_domain_id"
+  add_index "podcasts_participants", ["domain_id"], name: "index_podcasts_participants_on_domain_id", using: :btree
 
   create_table "podcasts_parties", force: :cascade do |t|
     t.integer  "episode_id"
@@ -203,7 +206,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_parties", ["domain_id"], name: "index_podcasts_parties_on_domain_id"
+  add_index "podcasts_parties", ["domain_id"], name: "index_podcasts_parties_on_domain_id", using: :btree
 
   create_table "site_framework_domains", force: :cascade do |t|
     t.string   "name"
@@ -214,7 +217,7 @@ ActiveRecord::Schema.define(version: 20160308095909) do
     t.datetime "updated_at"
   end
 
-  add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true
+  add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true, using: :btree
 
   create_table "site_framework_sites", force: :cascade do |t|
     t.string   "title"
