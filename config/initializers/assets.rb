@@ -11,3 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( dashboard/rtl/application.css dashboard/ltr/application.css)
 Rails.application.config.assets.precompile += %w( *.png )
+Rails.application.config.assets.precompile += %w( *.jpg )
+Rails.application.config.assets.precompile += %w( *.gif )
