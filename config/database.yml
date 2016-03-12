@@ -10,9 +10,9 @@ default: &default
   pool: 5
   username: community_master
 
-
 development:
   <<: *default
+  host: localhost
   database: cm_dev
   password: 123456
 

@@ -18,7 +18,7 @@ PATH
       omniauth
       orm_adapter
       pundit
-      rails
+      rails (>= 4.2.0)
       rails-assets-sugar (= 1.4.1)
       rails-i18n
       sass-rails
