@@ -64,7 +64,7 @@ gem 'faalis-comments', path: '../faalis_comments'
 gem 'faalis-media',    path: '../faalis_media', require: 'faalis/media'
 #gem 'globalize',       path: '../globalize', require: false
 gem 'faalis-page',     path: '../faalis_page'
-
+gem 'faalis-blog',     path: '../faalis_blog'
 gem 'paperclip'
 gem 'site_framework',  path: '../site_framework'
 gem 'pg'

@@ -18,13 +18,19 @@ PATH
       omniauth
       orm_adapter
       pundit
-      rails (>= 4.2.0)
+      rails
       rails-assets-sugar (= 1.4.1)
       rails-i18n
       sass-rails
       slim-rails
       sprockets
       turbolinks
+
+PATH
+  remote: ../faalis_blog
+  specs:
+    faalis-blog (0.2.0)
+      faalis (> 2)
 
 PATH
   remote: ../faalis_comments
@@ -435,6 +441,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 4.0.0.beta1)
   faalis!
+  faalis-blog!
   faalis-comments!
   faalis-media!
   faalis-page!
