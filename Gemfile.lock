@@ -31,6 +31,7 @@ PATH
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
+      site_framework
 
 PATH
   remote: ../faalis_comments
@@ -450,6 +451,7 @@ DEPENDENCIES
   jquery-turbolinks
   paperclip
   pg
+  pry-rails
   quiet_assets
   rails (= 5.0.0.beta3)
   rails-assets-admin-lte!

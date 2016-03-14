@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'yellowen-misc'
   gem 'quiet_assets'
+  gem 'pry-rails'
 end
 
 gem 'jquery-turbolinks'
