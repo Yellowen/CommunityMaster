@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160314134450) do
 
   # These are extensions that must be enabled in order to support this database
@@ -147,6 +148,19 @@ ActiveRecord::Schema.define(version: 20160314134450) do
   end
 
   add_index "faalis_permissions", ["model"], name: "index_faalis_permissions_on_model", using: :btree
+
+  create_table "faalis_user_messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "reciver_id"
+    t.boolean  "read_only"
+    t.text     "content"
+    t.text     "raw_content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "faalis_user_messages", ["reciver_id"], name: "index_faalis_user_messages_on_reciver_id", using: :btree
+  add_index "faalis_user_messages", ["sender_id"], name: "index_faalis_user_messages_on_sender_id", using: :btree
 
   create_table "faalis_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
