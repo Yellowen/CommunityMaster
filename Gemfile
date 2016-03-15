@@ -69,3 +69,14 @@ gem 'faalis-blog',     path: '../faalis_blog'
 gem 'paperclip'
 gem 'site_framework',  path: '../site_framework'
 gem 'pg'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', :github => "capistrano/rbenv"
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-local-precompile', require: false
+  gem 'capistrano-linked-files'
+  gem 'yellowen-misc'
+end
