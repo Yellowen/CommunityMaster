@@ -15,6 +15,7 @@ set :rbenv_ruby, '2.2.4'
 set :rbenv_path, '/home/web/.rbenv/'
 set :linked_files, ['config/secrets.yml', 'config/database.yml']
 set :linked_dirs, fetch(:linked_dirs, []).push('public/app')
+set :linked_dirs, fetch(:linked_dirs, []).push('public/templates')
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
