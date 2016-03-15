@@ -62,9 +62,9 @@ GIT
 
 GIT
   remote: git://github.com/Yellowen/site_framework.git
-  revision: 7c8c3268599a0c469458cb20f152048416ca5e9a
+  revision: 4a4476123ae0607fcc884927131ddaa7cb02a03c
   specs:
-    site_framework (4.1.0)
+    site_framework (4.1.1)
       orm_adapter
       railties (> 3)
 
