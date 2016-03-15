@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314132449) do
+
+ActiveRecord::Schema.define(version: 20160314134450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +22,35 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "faalis_blog_categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "permalink"
+    t.boolean  "private"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "domain_id"
+  end
+
+  create_table "faalis_blog_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "category_id"
+    t.boolean  "published"
+    t.integer  "user_id"
+    t.integer  "views"
+    t.integer  "likes"
+    t.integer  "dislikes"
+    t.boolean  "allow_comments"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "domain_id"
+  end
+
+  add_index "faalis_blog_posts", ["category_id"], name: "index_faalis_blog_posts_on_category_id", using: :btree
 
   create_table "faalis_comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -34,11 +64,9 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "domain_id"
   end
 
   add_index "faalis_comments", ["commentable_id", "commentable_type"], name: "index_faalis_comments_on_commentable_id_and_commentable_type", using: :btree
-  add_index "faalis_comments", ["domain_id"], name: "index_faalis_comments_on_domain_id", using: :btree
   add_index "faalis_comments", ["user_id"], name: "index_faalis_comments_on_user_id", using: :btree
 
   create_table "faalis_groups", force: :cascade do |t|
@@ -180,7 +208,6 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_episodes", ["domain_id"], name: "index_podcasts_episodes_on_domain_id", using: :btree
   add_index "podcasts_episodes", ["number"], name: "index_podcasts_episodes_on_number", using: :btree
 
   create_table "podcasts_links", force: :cascade do |t|
@@ -192,8 +219,6 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.datetime "updated_at", null: false
     t.integer  "domain_id"
   end
-
-  add_index "podcasts_links", ["domain_id"], name: "index_podcasts_links_on_domain_id", using: :btree
 
   create_table "podcasts_participants", force: :cascade do |t|
     t.string   "name"
@@ -208,8 +233,6 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.integer  "domain_id"
   end
 
-  add_index "podcasts_participants", ["domain_id"], name: "index_podcasts_participants_on_domain_id", using: :btree
-
   create_table "podcasts_parties", force: :cascade do |t|
     t.integer  "episode_id"
     t.integer  "participant_id"
@@ -218,8 +241,6 @@ ActiveRecord::Schema.define(version: 20160314132449) do
     t.datetime "updated_at",                     null: false
     t.integer  "domain_id"
   end
-
-  add_index "podcasts_parties", ["domain_id"], name: "index_podcasts_parties_on_domain_id", using: :btree
 
   create_table "site_framework_domains", force: :cascade do |t|
     t.string   "name"

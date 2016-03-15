@@ -5,6 +5,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
       s.faalis_entries
       s.media_entries
       s.page_entries
+      s.blog_entries
 
       s.menu(t('podcasts'), icon: 'fa fa-volume-up') do
          s.item(t('episodes'),
@@ -26,9 +27,6 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
                 url: faalis_comments.dashboard_comments_path,
                 model: 'Faalis::Comments::Comment')
       end
-
-
-
     end
   end
 end
