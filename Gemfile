@@ -73,7 +73,7 @@ gem 'faalis-blog', :github => 'Yellowen/faalis_blog'
 gem 'faalis', :github => 'Yellowen/Faalis'
 
 gem 'paperclip'
-gem 'site_framework',  path: '../site_framework'
+gem 'site_framework', :github => 'Yellowen/site_framework'
 gem 'pg'
 
 group :development do
