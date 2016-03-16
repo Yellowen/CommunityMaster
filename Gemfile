@@ -70,14 +70,13 @@ gem 'paperclip'
 gem 'pg'
 gem 'devise', '~>4.0.0.beta1'
 
-gem 'dotenv-rails'
-require 'dotenv'
-Dotenv.load
+#gem 'dotenv-rails'
 
 
+development_file = [File.expand_path(File.dirname(__FILE__)),
+                    ".development"].join("/")
 
-
-if ENV['RAILS_ENV'] == 'development'
+if File.exists?(development_file)
   gem 'faalis',          path: '../Faalis/'
   gem 'faalis-comments', path: '../faalis_comments'
   gem 'faalis-media',    path: '../faalis_media', require: 'faalis/media'
