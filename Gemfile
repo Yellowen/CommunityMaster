@@ -90,4 +90,5 @@ else
   gem 'faalis-page', :github => 'Yellowen/faalis_page'
   gem 'faalis-blog', :github => 'Yellowen/faalis_blog'
   gem 'faalis', :github => 'Yellowen/Faalis'
+  gem 'site_framework',  :github => 'Yellowen/site_framework'
 end
