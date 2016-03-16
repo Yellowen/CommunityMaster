@@ -49,12 +49,12 @@ set :linked_dirs, fetch(:linked_dirs, []).push('public/templates')
 
 namespace :deploy do
 
-    desc "reload the database with seed data"
+  desc "reload the database with seed data"
   task :seed do
     `cd #{current_path}; rake db:seed RAILS_ENV=production`
   end
 
-    desc 'Runs rake db:drope create and migrate and seed'
+  desc 'Runs rake db:drope create and migrate and seed'
   task :redb  do
     on primary fetch(:migration_role) do
       within release_path do
