@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Yellowen/Faalis.git
-  revision: cd0e6c51befdc78a8ad2a14b1a0e45d08a0e281c
+  revision: f0234373e29bfb947f2673efcfad1695fbeafbef
   specs:
     faalis (2.0.8)
       admin_lte-rails (~> 2.3.0)
@@ -53,7 +53,7 @@ GIT
 
 GIT
   remote: git://github.com/Yellowen/faalis_page.git
-  revision: dc0806f7a97183855c19d1f11d90f22fdacf4ef2
+  revision: c9233a7642291ae845cbe01a6a7c7f6eae61d0ce
   specs:
     faalis-page (2.0.0)
       faalis (> 2.0.7)
