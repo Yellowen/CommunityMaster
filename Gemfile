@@ -68,8 +68,8 @@ end
 gem 'jquery-turbolinks'
 gem 'paperclip'
 gem 'pg'
-gem 'devise', '~>4.0.0.beta1'
-
+#gem 'devise', '~>4.0.0.beta1'
+gem 'devise', :github => 'plataformatec/devise'
 #gem 'dotenv-rails'
 
 
