@@ -70,6 +70,7 @@ gem 'paperclip'
 gem 'pg'
 #gem 'devise', '~>4.0.0.beta1'
 gem 'devise', :github => 'plataformatec/devise'
+gem 'pundit', :github => 'elabs/pundit'
 #gem 'dotenv-rails'
 
 
