@@ -12,7 +12,7 @@ role :web, '46.101.171.222'
 role :db,  '46.101.171.222'
 
 server "46.101.171.222", user: 'web', roles: %W{web, db, app}, :primary => true
-set :branch, 'master'
+set :branch, 'stable'
 set :deploy_to, "/home/web/www/CommunityMaster"
 set :bundle_without, %w{development test}
 set :ssh_options, {
