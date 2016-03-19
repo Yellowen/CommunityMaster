@@ -2,7 +2,7 @@
 #lock '3.4.0'
 
 #set :deploy_via, :remote_cache
-set :pty, true
+#set :pty, true
 set :application, 'CommunityMaster'
 set :repo_url, 'git@github.com:Yellowen/CommunityMaster.git'
 set :user, 'web'
@@ -16,6 +16,8 @@ set :rbenv_path, '/home/web/.rbenv/'
 set :linked_files, ['config/secrets.yml', 'config/database.yml']
 set :linked_dirs, fetch(:linked_dirs, []).push('public/app')
 set :linked_dirs, fetch(:linked_dirs, []).push('public/templates')
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+set :shell, '/bin/bash'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
