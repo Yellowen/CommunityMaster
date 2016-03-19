@@ -68,13 +68,23 @@ namespace :deploy do
     end
   end
 
-  after :restart, :clear_cache do
+  after :restart, :restart_passenger do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
+      within release_path do
+        execute :touch, 'tmp/restart.txt'
+        execute :rake, 'cache:clear'
+      end
+    end
+  end
+
+  after :finishing, 'deploy:restart_passenger'
+  #after :restart, :clear_cache do
+  #  on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-    end
-  end
+  #  end
+  #end
 
 end
