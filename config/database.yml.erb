@@ -27,4 +27,5 @@ test:
 production:
   <<: *default
   host: localhost
-  database: cm
+  database: <%= ENV['POSTGRES_DB'] %>
+  password: <%= ENV['POSTGRES_PASSWD'] %>
