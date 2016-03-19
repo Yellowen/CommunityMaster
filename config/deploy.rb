@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 #lock '3.4.0'
 
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
 set :pty, true
 set :application, 'CommunityMaster'
 set :repo_url, 'git@github.com:Yellowen/CommunityMaster.git'
@@ -30,7 +30,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('public/templates')
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
+set :log_level, :debug
 
 # Default value for :pty is false
 # set :pty, true
@@ -72,7 +72,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         execute :touch, 'tmp/restart.txt'
-        execute :rake, 'cache:clear'
+        execute :rake, 'tmp:clear'
       end
     end
   end
