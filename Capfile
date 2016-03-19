@@ -15,7 +15,7 @@ require 'capistrano/rails/assets'
 #
  require 'capistrano/rbenv'
  require 'capistrano/bundler'
-# require 'capistrano/passenger'
+ require 'capistrano/passenger'
  require 'capistrano/linked_files'
  require 'capistrano/rails'
 
