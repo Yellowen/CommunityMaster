@@ -49,6 +49,15 @@ set :log_level, :debug
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+desc 'debug env'
+task :env do
+  on roles(:web), in: :groups, limit: 3, wait: 10 do
+    within release_path do
+      capture 'env'
+    end
+  end
+end
+
 namespace :deploy do
 
   desc "reload the database with seed data"
