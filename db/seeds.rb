@@ -30,4 +30,4 @@ ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاس�
   default_template: 'canvas')
 
 SiteFramework::Domain.create!(site: ciwic,
-  name: 'ciwic.local', alias: 'ciwic.faalis.io')
+  name: 'ciwic.faalis.io', alias: 'ciwic.local')
