@@ -1,6 +1,31 @@
 GIT
-  remote: git://github.com/Yellowen/Faalis.git
-  revision: fbd58a9ae1ac2a16055f25886209e9a8bcf4547e
+  remote: git://github.com/capistrano/rbenv.git
+  revision: e056efc0c361cc15b76ff961d6c5f65ed5e2c57e
+  specs:
+    capistrano-rbenv (2.0.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+
+GIT
+  remote: git://github.com/elabs/pundit.git
+  revision: 381a39e4923838257e247d4765ca39f9c10c8f7d
+  specs:
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 2b3799e6ceb315172d14a16103ab9fb1702f79fc
+  specs:
+    devise (4.0.0.rc2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
+
+PATH
+  remote: ../Faalis/
   specs:
     faalis (2.0.8)
       admin_lte-rails (~> 2.3.0)
@@ -27,88 +52,53 @@ GIT
       sprockets
       turbolinks
 
-GIT
-  remote: git://github.com/Yellowen/faalis-comments.git
-  revision: 10e46e2626c3e01c6bd055f75200fd3d05c9f6c6
-  specs:
-    faalis-comments (0.2.0)
-      acts_as_commentable_with_threading
-      faalis (~> 2)
-
-GIT
-  remote: git://github.com/Yellowen/faalis_blog.git
-  revision: 9047a19a957b12d3fa33108750b97c162ccfbf0f
+PATH
+  remote: ../faalis_blog
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
       site_framework
 
-GIT
-  remote: git://github.com/Yellowen/faalis_media.git
-  revision: d9ab492e843ca222396f5435296698c777e20dd8
+PATH
+  remote: ../faalis_comments
+  specs:
+    faalis-comments (0.2.0)
+      acts_as_commentable_with_threading
+      faalis (~> 2)
+
+PATH
+  remote: ../faalis_media
   specs:
     faalis-media (0.1.0)
       faalis (> 2)
       paperclip
 
-GIT
-  remote: git://github.com/Yellowen/faalis_page.git
-  revision: c9233a7642291ae845cbe01a6a7c7f6eae61d0ce
+PATH
+  remote: ../faalis_page
   specs:
     faalis-page (2.0.0)
       faalis (> 2.0.7)
       redcarpet
       site_framework
 
-GIT
-  remote: git://github.com/Yellowen/sass.git
-  revision: 22cee12649eb084b4c6ddff8773e4293d8998ae3
-  branch: 3422
+PATH
+  remote: ../sass
   specs:
     sass (3.4.22)
 
-GIT
-  remote: git://github.com/Yellowen/site_framework.git
-  revision: 4a4476123ae0607fcc884927131ddaa7cb02a03c
+PATH
+  remote: ../site_framework
   specs:
     site_framework (4.1.1)
       orm_adapter
       railties (> 3)
 
-GIT
-  remote: git://github.com/Yellowen/sprockets.git
-  revision: a6adc2d3c8dcc5d712e49dac59359c8e8d3c76aa
-  branch: 3.x
+PATH
+  remote: ../sprockets
   specs:
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-
-GIT
-  remote: git://github.com/capistrano/rbenv.git
-  revision: e056efc0c361cc15b76ff961d6c5f65ed5e2c57e
-  specs:
-    capistrano-rbenv (2.0.4)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-
-GIT
-  remote: git://github.com/elabs/pundit.git
-  revision: 381a39e4923838257e247d4765ca39f9c10c8f7d
-  specs:
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
-
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 2b3799e6ceb315172d14a16103ab9fb1702f79fc
-  specs:
-    devise (4.0.0.rc2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
-      responders
-      warden (~> 1.2.3)
 
 GEM
   remote: https://rubygems.org/
