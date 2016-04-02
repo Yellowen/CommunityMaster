@@ -63,6 +63,8 @@ group :development do
   gem 'capistrano-local-precompile', require: false
   gem 'capistrano-linked-files'
   gem 'yellowen-misc'
+  gem 'pry-doc'
+  gem 'pry-byebug'
 end
 
 gem 'jquery-turbolinks'
@@ -93,3 +95,6 @@ else
   gem 'faalis',          :github => 'Yellowen/Faalis'
   gem 'site_framework',  :github => 'Yellowen/site_framework'
 end
+
+#gem 'sass', github: 'Yellowen/sass', branch: '3.4.22'
+gem 'sprockets', github: 'Yellowen/sprockets', branch: '3.x'
