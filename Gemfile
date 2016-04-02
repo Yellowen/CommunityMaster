@@ -87,9 +87,9 @@ if File.exists?(development_file)
 
 else
   gem 'faalis-comments', :github => 'Yellowen/faalis-comments'
-  gem 'faalis-media', :github => 'Yellowen/faalis_media', require: 'faalis/media'
-  gem 'faalis-page', :github => 'Yellowen/faalis_page'
-  gem 'faalis-blog', :github => 'Yellowen/faalis_blog'
-  gem 'faalis', :github => 'Yellowen/Faalis'
+  gem 'faalis-media',    :github => 'Yellowen/faalis_media', require: 'faalis/media'
+  gem 'faalis-page',     :github => 'Yellowen/faalis_page'
+  gem 'faalis-blog',     :github => 'Yellowen/faalis_blog'
+  gem 'faalis',          :github => 'Yellowen/Faalis'
   gem 'site_framework',  :github => 'Yellowen/site_framework'
 end
