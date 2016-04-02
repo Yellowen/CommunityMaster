@@ -96,5 +96,5 @@ else
   gem 'site_framework',  :github => 'Yellowen/site_framework'
 end
 
-#gem 'sass', github: 'Yellowen/sass', branch: '3.4.22'
+gem 'sass', github: 'Yellowen/sass', branch: '3422'
 gem 'sprockets', github: 'Yellowen/sprockets', branch: '3.x'
