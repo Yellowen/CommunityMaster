@@ -63,6 +63,8 @@ group :development do
   gem 'capistrano-local-precompile', require: false
   gem 'capistrano-linked-files'
   gem 'yellowen-misc'
+  gem 'pry-doc'
+  gem 'pry-byebug'
 end
 
 gem 'jquery-turbolinks'
@@ -84,12 +86,15 @@ if File.exists?(development_file)
   gem 'faalis-page',     path: '../faalis_page'
   gem 'faalis-blog',     path: '../faalis_blog'
   gem 'site_framework',  path: '../site_framework'
-
+  #gem 'sass', path: '../sass'
+  #gem 'sprockets', path: '../sprockets'
 else
   gem 'faalis-comments', :github => 'Yellowen/faalis-comments'
-  gem 'faalis-media', :github => 'Yellowen/faalis_media', require: 'faalis/media'
-  gem 'faalis-page', :github => 'Yellowen/faalis_page'
-  gem 'faalis-blog', :github => 'Yellowen/faalis_blog'
-  gem 'faalis', :github => 'Yellowen/Faalis'
+  gem 'faalis-media',    :github => 'Yellowen/faalis_media', require: 'faalis/media'
+  gem 'faalis-page',     :github => 'Yellowen/faalis_page'
+  gem 'faalis-blog',     :github => 'Yellowen/faalis_blog'
+  gem 'faalis',          :github => 'Yellowen/Faalis'
   gem 'site_framework',  :github => 'Yellowen/site_framework'
+  #gem 'sass', github: 'Yellowen/sass', branch: '3422'
+  #gem 'sprockets', github: 'Yellowen/sprockets', branch: '3.x'
 end

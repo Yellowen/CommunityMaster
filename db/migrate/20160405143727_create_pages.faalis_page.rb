@@ -19,5 +19,6 @@ class CreatePages < ActiveRecord::Migration
     end
 
     add_index :faalis_page_pages, :permalink
+    domain_aware :faalis_page_pages
   end
 end
