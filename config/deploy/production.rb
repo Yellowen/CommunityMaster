@@ -11,10 +11,14 @@ role :app, '46.101.171.222'
 role :web, '46.101.171.222'
 role :db,  '46.101.171.222'
 
-server "46.101.171.222", user: 'web', roles: %W{web, db, app}, :primary => true
+server "46.101.171.222", user: 'web', roles: %W{web, db, app}, primary: true
 set :branch, 'stable'
 set :deploy_to, "/home/web/www/CommunityMaster"
+
 set :bundle_without, %w{development test}
+
+set :keep_releases, 3
+
 set :ssh_options, {
 forward_agent: true,
 #port: 6022
@@ -57,7 +61,7 @@ forward_agent: true,
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-#
+set :migration_role, :app
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server 'example.com',
