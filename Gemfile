@@ -44,7 +44,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'yellowen-misc'
-  gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'minitest-rails', github: 'blowmage/minitest-rails', branch: 'rails5'

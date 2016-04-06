@@ -599,7 +599,6 @@ DEPENDENCIES
   pg
   poltergeist
   pry-byebug
-  pry-doc
   pry-rails
   pundit!
   quiet_assets
