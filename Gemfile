@@ -43,6 +43,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'yellowen-misc'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'minitest-rails', github: 'blowmage/minitest-rails', branch: 'rails5'
+  gem 'guard'
+  gem 'rb-fsevent'
+  gem 'capybara'
+  gem 'connection_pool'
+  gem 'launchy'
+  gem 'minitest-reporters'
+  gem 'poltergeist'
+  gem 'fabrication'
+  gem 'minitest-rails-capybara', github: 'blowmage/minitest-rails-capybara', branch: 'rails5'
+  gem 'minitest-around'
+  gem 'database_cleaner'
+  gem 'guard-minitest'
 end
 
 group :development do
@@ -51,10 +68,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'yellowen-misc'
   gem 'quiet_assets'
-  gem 'pry-rails'
-
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv', :github => "capistrano/rbenv"
@@ -62,9 +76,7 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano-local-precompile', require: false
   gem 'capistrano-linked-files'
-  gem 'yellowen-misc'
-  gem 'pry-doc'
-  gem 'pry-byebug'
+
 end
 
 gem 'jquery-turbolinks'
