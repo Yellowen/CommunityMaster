@@ -10,7 +10,7 @@ source 'http://rails-assets.org' do
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', path: '../../rails' #'5.0.0.beta3'
+gem 'rails', '5.0.0.beta3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -97,6 +97,7 @@ if File.exists?(development_file)
   gem 'faalis-page',     path: '../faalis_page'
   gem 'faalis-blog',     path: '../faalis_blog'
   gem 'site_framework',  path: '../site_framework'
+  gem 'amd', path: '../amd'
   #gem 'sass', path: '../sass'
   #gem 'sprockets', path: '../sprockets'
 else
