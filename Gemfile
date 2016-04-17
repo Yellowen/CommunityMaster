@@ -59,6 +59,9 @@ group :development, :test do
   gem 'minitest-around'
   gem 'database_cleaner'
   gem 'guard-minitest'
+  gem 'guard-cane'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
 end
 
 group :development do
