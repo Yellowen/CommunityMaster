@@ -7,6 +7,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
       s.page_entries
       s.blog_entries
 
+
       s.menu(t('podcasts'), icon: 'fa fa-volume-up') do
          s.item(t('episodes'),
                 url: main_app.dashboard_podcasts_episodes_path,
