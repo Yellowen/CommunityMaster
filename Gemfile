@@ -116,3 +116,7 @@ else
   #gem 'sass', github: 'Yellowen/sass', branch: '3422'
   #gem 'sprockets', github: 'Yellowen/sprockets', branch: '3.x'
 end
+
+# Gems to update with rails 5
+
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'

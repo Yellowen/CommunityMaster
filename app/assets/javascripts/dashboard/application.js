@@ -12,8 +12,3 @@
 //
 /// From Faalis -----------------------------
 //= require faalis/dashboard/application
-
-//= require admin_lte/admin_lte
-
-/// Faalis dashboard main application --------
-//= require faalis/dashboard/application
