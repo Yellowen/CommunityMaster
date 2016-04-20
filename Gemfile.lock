@@ -42,9 +42,9 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: c87d8fda825d6719dc3e055fc7ed8370df623ef1
+  revision: 22468f375684177bb9ffbc62595cf9ed10db9bbc
   specs:
-    devise (4.0.0.rc2)
+    devise (4.0.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -91,7 +91,6 @@ PATH
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
-      faalis-tags
       redcarpet
       site_framework
 
@@ -266,7 +265,7 @@ GEM
     colorize (0.7.7)
     concurrent-ruby (1.0.1)
     connection_pool (2.2.0)
-    database_cleaner (1.5.1)
+    database_cleaner (1.5.2)
     debug_inspector (0.0.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -452,7 +451,7 @@ GEM
     rails-assets-jquery-knob (1.2.13)
       rails-assets-jquery (>= 1.7.0)
     rails-assets-jquery-sparkline (2.1.3)
-    rails-assets-moment (2.12.0)
+    rails-assets-moment (2.13.0)
     rails-assets-sugar (1.4.1)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)

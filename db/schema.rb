@@ -199,6 +199,15 @@ ActiveRecord::Schema.define(version: 20160420061348) do
   add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true, using: :btree
   add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true, using: :btree
 
+  create_table "namespaces", force: :cascade do |t|
+    t.boolean  "locked"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "podcasts_episodes", force: :cascade do |t|
     t.string   "title"
     t.integer  "number"
@@ -253,6 +262,13 @@ ActiveRecord::Schema.define(version: 20160420061348) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "domain_id"
+  end
+
+  create_table "site_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "site_framework_domains", force: :cascade do |t|
