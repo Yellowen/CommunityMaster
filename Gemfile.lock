@@ -34,6 +34,13 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
+  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  revision: dde41a4d0d14e0f5b57c685265f68545383f70fa
+  specs:
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: c87d8fda825d6719dc3e055fc7ed8370df623ef1
   specs:
@@ -84,6 +91,7 @@ PATH
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
+      faalis-tags
       redcarpet
       site_framework
 
@@ -108,6 +116,13 @@ PATH
       faalis
       redcarpet
       site_framework
+
+PATH
+  remote: ../faalis_tags
+  specs:
+    faalis-tags (0.2.0)
+      acts-as-taggable-on (~> 3.4)
+      faalis (~> 2)
 
 PATH
   remote: ../site_framework
@@ -588,6 +603,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   amd!
   byebug
   capistrano
@@ -607,6 +623,7 @@ DEPENDENCIES
   faalis-comments!
   faalis-media!
   faalis-page!
+  faalis-tags!
   fabrication
   guard
   guard-cane
