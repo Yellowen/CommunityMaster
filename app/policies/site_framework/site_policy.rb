@@ -1,4 +1,4 @@
-class SitePolicy < ApplicationPolicy
+class SiteFramework::SitePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

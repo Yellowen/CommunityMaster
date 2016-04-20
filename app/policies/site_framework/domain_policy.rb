@@ -1,4 +1,4 @@
-class DomainPolicy < ApplicationPolicy
+class SiteFramework::DomainPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
