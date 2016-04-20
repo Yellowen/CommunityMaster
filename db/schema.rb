@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405143728) do
+ActiveRecord::Schema.define(version: 20160419064147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,26 +26,26 @@ ActiveRecord::Schema.define(version: 20160405143728) do
     t.string   "title"
     t.text     "description"
     t.string   "permalink"
-    t.boolean  "private"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "members_only", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "domain_id"
   end
 
   create_table "faalis_blog_posts", force: :cascade do |t|
     t.string   "title"
+    t.string   "permalink"
+    t.text     "raw_content"
     t.text     "content"
-    t.integer  "category_id"
+    t.integer  "category_id",                      null: false
     t.boolean  "published"
-    t.integer  "user_id"
-    t.integer  "views"
-    t.integer  "likes"
-    t.integer  "dislikes"
-    t.boolean  "allow_comments"
+    t.integer  "user_id",                          null: false
+    t.boolean  "allow_comments",   default: true
+    t.boolean  "members_only",     default: false
     t.string   "meta_title"
     t.string   "meta_description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "domain_id"
   end
 

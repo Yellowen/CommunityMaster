@@ -84,6 +84,8 @@ PATH
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
+      faalis-tags
+      redcarpet
       site_framework
 
 PATH
@@ -107,6 +109,13 @@ PATH
       faalis
       redcarpet
       site_framework
+
+PATH
+  remote: ../faalis_tags
+  specs:
+    faalis-tags (0.2.0)
+      acts-as-taggable-on (~> 3.4)
+      faalis (~> 2)
 
 PATH
   remote: ../site_framework
@@ -156,6 +165,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     acts_as_commentable_with_threading (2.0.1)
       activerecord (>= 4.0)
       activesupport (>= 4.0)
@@ -606,6 +617,7 @@ DEPENDENCIES
   faalis-comments!
   faalis-media!
   faalis-page!
+  faalis-tags!
   fabrication
   guard
   guard-cane

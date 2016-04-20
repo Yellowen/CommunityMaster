@@ -99,6 +99,8 @@ if File.exists?(development_file)
   gem 'faalis-media',    path: '../faalis_media', require: 'faalis/media'
   gem 'faalis-page',     path: '../faalis_page'
   gem 'faalis-blog',     path: '../faalis_blog'
+  gem 'faalis-tags',     path: '../faalis_tags'
+
   gem 'site_framework',  path: '../site_framework'
   gem 'amd', path: '../amd'
   #gem 'sass', path: '../sass'
@@ -108,6 +110,7 @@ else
   gem 'faalis-media',    :github => 'Yellowen/faalis_media', require: 'faalis/media'
   gem 'faalis-page',     :github => 'Yellowen/faalis_page'
   gem 'faalis-blog',     :github => 'Yellowen/faalis_blog'
+  gem 'faalis-tags',     :github => '../faalis_tags'
   gem 'faalis',          :github => 'Yellowen/Faalis'
   gem 'site_framework',  :github => 'Yellowen/site_framework'
   #gem 'sass', github: 'Yellowen/sass', branch: '3422'
