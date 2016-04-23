@@ -1,15 +1,18 @@
 class Dashboard::DomainsController < Dashboard::ApplicationController
   #engine 'SiteFramework::Engine'
+  model_name '::SiteFramework::Domain'
 
   in_form do |form|
-    if !current_user.admin?
-      form.attributes except: [:updated_at, :user]
-    end
+    form.attributes except: [:updated_at, :user]
   end
 
-  def model
-    SiteFramework::Domain
+  protected
+
+  def model_name
+    'SiteFramework::Domain'
   end
+
+  private
 
   def before_create_hook(resource)
     if !current_user.admin?
