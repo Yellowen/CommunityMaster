@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420061348) do
+ActiveRecord::Schema.define(version: 20160423091604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -275,9 +275,10 @@ ActiveRecord::Schema.define(version: 20160420061348) do
     t.string   "name"
     t.integer  "site_id"
     t.integer  "parent_id"
-    t.boolean  "alias",      default: false
+    t.boolean  "alias",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "namespace_id"
   end
 
   add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true, using: :btree
@@ -288,6 +289,10 @@ ActiveRecord::Schema.define(version: 20160420061348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "default_template", default: ""
+    t.integer  "user_id"
+    t.boolean  "locked"
+    t.json     "settings"
+    t.integer  "site_category_id"
   end
 
   create_table "taggings", force: :cascade do |t|
