@@ -1,7 +1,16 @@
 class Dashboard::SitesController < Dashboard::ApplicationController
   #engine 'SiteFramework::Site'
 
-  def model
-    SiteFramework::Site
+  model_name 'SiteFramework::Site'
+
+  in_form do |form|
+    form.attributes except: [:user]
   end
+
+  private
+
+  def before_create_hook(resource)
+    resource.user = current_user
+  end
+
 end

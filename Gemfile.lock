@@ -54,7 +54,7 @@ GIT
 PATH
   remote: ../Faalis/
   specs:
-    faalis (2.0.9)
+    faalis (2.1.0)
       admin_lte-rails (~> 2.3.0)
       amd
       coffee-rails
@@ -126,7 +126,7 @@ PATH
 PATH
   remote: ../site_framework
   specs:
-    site_framework (4.1.1)
+    site_framework (4.1.2)
       orm_adapter
       railties (> 3)
 
