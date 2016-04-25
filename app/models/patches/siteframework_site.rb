@@ -2,6 +2,7 @@
 SiteFramework::Site.class_eval do
 
   include Faalis::Concerns::Authorizable
+
   validates(:title, presence: true)
   validates(:site_category_id, presence: true)
 

@@ -8,4 +8,5 @@ SiteFramework::Domain.class_eval do
 
   validates_associated :user
   validates_associated :namespace
+
 end
