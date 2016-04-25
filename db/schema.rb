@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420061348) do
+ActiveRecord::Schema.define(version: 20160423091604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,15 @@ ActiveRecord::Schema.define(version: 20160420061348) do
   add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true, using: :btree
   add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true, using: :btree
 
+  create_table "namespaces", force: :cascade do |t|
+    t.boolean  "locked"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "podcasts_episodes", force: :cascade do |t|
     t.string   "title"
     t.integer  "number"
@@ -255,13 +264,21 @@ ActiveRecord::Schema.define(version: 20160420061348) do
     t.integer  "domain_id"
   end
 
+  create_table "site_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "site_framework_domains", force: :cascade do |t|
     t.string   "name"
     t.integer  "site_id"
     t.integer  "parent_id"
-    t.boolean  "alias",      default: false
+    t.boolean  "alias",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "namespace_id"
   end
 
   add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true, using: :btree
@@ -272,6 +289,10 @@ ActiveRecord::Schema.define(version: 20160420061348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "default_template", default: ""
+    t.integer  "user_id"
+    t.boolean  "locked"
+    t.json     "settings"
+    t.integer  "site_category_id"
   end
 
   create_table "taggings", force: :cascade do |t|

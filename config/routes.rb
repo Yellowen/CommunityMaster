@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
 
   in_dashboard do
+    resources :domains
+    resources :sites
+    resources :site_categories
+    resources :namespaces
     resources :participants
     resources :parties
     resources :links

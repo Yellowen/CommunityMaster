@@ -8,17 +8,22 @@ Faalis::Engine.load_seed
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+category = SiteCategory.create!(name: 'عمومی')
+
 radio_boot = SiteFramework::Site.create!(title: 'رادیو بوت',
   description: 'پادکست رادیو بوت، به بهانه تکنولوژی',
-  default_template: 'radio_boot')
+  default_template: 'radio_boot',
+  site_category: category)
 
 SiteFramework::Domain.create!(site: radio_boot,
-  name:'radioboot.com', alias: 'www.radioboot.com')
+  name:'radioboot.com',
+  alias: 'www.radioboot.com')
 
 
 tech5 = SiteFramework::Site.create!(title: 'Tech5',
   description: 'پادکست تک فایو کار مشترکی از سلام دنیا و رادیو بوت',
-  default_template: 'tech5')
+  default_template: 'tech5',
+  site_category: category)
 
 SiteFramework::Domain.create!(site: tech5,
   name:'tech5.ir',
@@ -27,7 +32,8 @@ SiteFramework::Domain.create!(site: tech5,
 
 ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاسپین ایده ویرا',
   description: 'بزرگترین توزیع کننده انواع کالا و محصولات داخلی و خارجی، در حوزه های گوناگون بازرگانی و فروش',
-  default_template: 'canvas')
+  default_template: 'canvas',
+  site_category: category)
 
 SiteFramework::Domain.create!(site: ciwic,
   name: 'ciwic.faalis.io', alias: 'ciwic.local')

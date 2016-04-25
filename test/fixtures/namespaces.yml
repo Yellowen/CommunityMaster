@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  locked: false
+  name: MyString
+  description: MyText
+  user_id: 1
+
+two:
+  locked: false
+  name: MyString
+  description: MyText
+  user_id: 1
