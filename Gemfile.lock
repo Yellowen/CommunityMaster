@@ -54,7 +54,7 @@ GIT
 PATH
   remote: ../Faalis/
   specs:
-    faalis (2.1.1)
+    faalis (2.1.0)
       admin_lte-rails (~> 2.3.0)
       amd
       coffee-rails
@@ -91,7 +91,6 @@ PATH
   specs:
     faalis-blog (0.2.0)
       faalis (> 2)
-      faalis-tags
       redcarpet
       site_framework
 
@@ -114,7 +113,6 @@ PATH
   specs:
     faalis-page (2.0.0)
       faalis
-      rails-assets-bootstrap-treeview
       redcarpet
       site_framework
 
@@ -447,9 +445,6 @@ GEM
       rails-assets-moment (>= 2.9.0)
     rails-assets-bootstrap-rtl (3.4.0)
       rails-assets-bootstrap (>= 3.3.0)
-    rails-assets-bootstrap-treeview (1.2.0)
-      rails-assets-bootstrap (>= 3.0.0)
-      rails-assets-jquery (>= 1.9.0)
     rails-assets-jquery (2.2.3)
     rails-assets-jquery-icheck (1.0.2)
       rails-assets-jquery (>= 1.7)
