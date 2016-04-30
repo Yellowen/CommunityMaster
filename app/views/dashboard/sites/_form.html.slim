@@ -1,0 +1,43 @@
+.row
+  .col-xs-12
+      .row
+        .col-xs-12.col-md-12
+          .box.box-solid
+            .box-header.with-border
+              h3
+                = t('dashboard.site.new')
+            .box-body
+              .row
+                .col-sm-12
+                  = semantic_form_for(@resource, url: target, remote: true, html: { multipart: @multipart }) do |f|
+                    div.breadcrumb
+                        .input-group
+                          input.input-lg#text.form-control name="name" placeholder=(t('dashboard.site.name'))
+                          span.input-group-addon
+                            b -
+                          input.input-lg#href.form-control name="namespace" placeholder=(t('dashboard.site.namespace'))
+                          span.input-group-addon
+                            b .domain.com
+              .row
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
+                    label for="lang"
+                      = t('dashboard.site.lang')
+                    select#lang.form-control name="lang"
+                      - I18n.available_locales.each do |lang|
+                        option value=(lang)
+                          = lang
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
+                    label for="lang"
+                      = t('dashboard.site.category')
+                    select#category.form-control name="category"
+            .box-footer
+              .row
+                .col-sm-6.col-xs-12
+                  button.btn.btn-primary.change_button.btn-block
+                    = t('faalis.page.dashboard.menu.change')
+
+                .col-sm-6.pull-right.col-xs-12
+                  button.btn.btn-danger.delete_button.btn-block
+                    = t('faalis.page.dashboard.menu.cansel')
