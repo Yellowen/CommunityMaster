@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423091604) do
+ActiveRecord::Schema.define(version: 20160503063331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,27 +29,30 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.boolean  "members_only", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
+
+  add_index "faalis_blog_categories", ["site_id"], name: "index_faalis_blog_categories_on_site_id", using: :btree
 
   create_table "faalis_blog_posts", force: :cascade do |t|
     t.string   "title"
     t.string   "permalink"
     t.text     "raw_content"
     t.text     "content"
-    t.integer  "category_id",                      null: false
+    t.integer  "category_id"
     t.boolean  "published"
-    t.integer  "user_id",                          null: false
+    t.integer  "user_id"
     t.boolean  "allow_comments",   default: true
     t.boolean  "members_only",     default: false
     t.string   "meta_title"
     t.string   "meta_description"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "faalis_blog_posts", ["category_id"], name: "index_faalis_blog_posts_on_category_id", using: :btree
+  add_index "faalis_blog_posts", ["site_id"], name: "index_faalis_blog_posts_on_site_id", using: :btree
 
   create_table "faalis_comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -124,13 +127,12 @@ ActiveRecord::Schema.define(version: 20160423091604) do
 
   create_table "faalis_page_menus", force: :cascade do |t|
     t.string   "title"
-    t.integer  "site_id"
     t.boolean  "published",  default: false
     t.integer  "user_id"
-    t.json     "items"
+    t.json     "data"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "faalis_page_menus", ["site_id"], name: "index_faalis_page_menus_on_site_id", using: :btree
@@ -148,10 +150,11 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.boolean  "published",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink", using: :btree
+  add_index "faalis_page_pages", ["site_id"], name: "index_faalis_page_pages_on_site_id", using: :btree
 
   create_table "faalis_permissions", force: :cascade do |t|
     t.string   "model"
@@ -227,10 +230,11 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "podcasts_episodes", ["number"], name: "index_podcasts_episodes_on_number", using: :btree
+  add_index "podcasts_episodes", ["site_id"], name: "index_podcasts_episodes_on_site_id", using: :btree
 
   create_table "podcasts_links", force: :cascade do |t|
     t.string   "title"
@@ -239,8 +243,10 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.integer  "episode_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
+
+  add_index "podcasts_links", ["site_id"], name: "index_podcasts_links_on_site_id", using: :btree
 
   create_table "podcasts_participants", force: :cascade do |t|
     t.string   "name"
@@ -252,8 +258,10 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
+
+  add_index "podcasts_participants", ["site_id"], name: "index_podcasts_participants_on_site_id", using: :btree
 
   create_table "podcasts_parties", force: :cascade do |t|
     t.integer  "episode_id"
@@ -261,8 +269,10 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.boolean  "host",           default: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
+
+  add_index "podcasts_parties", ["site_id"], name: "index_podcasts_parties_on_site_id", using: :btree
 
   create_table "site_categories", force: :cascade do |t|
     t.string   "name"

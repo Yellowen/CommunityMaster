@@ -21,6 +21,7 @@
 #  cover_content_type :string
 #  cover_file_size    :integer
 #  cover_updated_at   :datetime
+#  site_id            :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -5,9 +5,10 @@
 #  id             :integer          not null, primary key
 #  episode_id     :integer
 #  participant_id :integer
-#  host           :boolean
+#  host           :boolean          default(FALSE)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  site_id        :integer
 #
 
 require 'test_helper'
