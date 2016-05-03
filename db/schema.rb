@@ -279,6 +279,7 @@ ActiveRecord::Schema.define(version: 20160423091604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "namespace_id"
+    t.integer  "user_id"
   end
 
   add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true, using: :btree

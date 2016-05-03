@@ -1,6 +1,7 @@
 class Dashboard::SitesController < Dashboard::ApplicationController
   #engine 'SiteFramework::Site'
 
+  override_views :new, :edit
   model_name 'SiteFramework::Site'
 
   in_form do |form|
