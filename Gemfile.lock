@@ -128,7 +128,7 @@ PATH
 PATH
   remote: ../site_framework
   specs:
-    site_framework (4.1.2)
+    site_framework (4.2.0)
       orm_adapter
       railties (> 3)
 

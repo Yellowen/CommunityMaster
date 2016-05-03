@@ -10,6 +10,6 @@ class CreateFaalisBlogCategories < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    domain_aware :faalis_blog_categories
+    site_aware :faalis_blog_categories
   end
 end
