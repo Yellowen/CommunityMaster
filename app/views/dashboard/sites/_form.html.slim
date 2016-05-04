@@ -1,6 +1,7 @@
 .row
   .col-xs-12
-      .row
+    .row
+      = semantic_form_for(@resource, url: target, remote: true, html: { multipart: @multipart }) do |f|
         .col-xs-12.col-md-12
           .box.box-solid
             .box-header.with-border
@@ -9,7 +10,6 @@
             .box-body
               .row
                 .col-sm-12
-                  = semantic_form_for(@resource, url: target, remote: true, html: { multipart: @multipart }) do |f|
                     div.breadcrumb
                         .input-group
                           input.input-lg#text.form-control name="name" placeholder=(t('dashboard.site.name'))
@@ -20,6 +20,13 @@
                             b .domain.com
               .row
                 .col-sm-12.col-lg-6.col-md-6
+                    = f.inputs :title, input_html: {class: 'form-control', label: t('dashboard.site.title')}
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
+                    = f.inputs :site_category, input_html: {class: 'form-control', label: t('dashboard.site.category')}
+              .row
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
                   .form-group.margin
                     label for="lang"
                       = t('dashboard.site.lang')
@@ -29,15 +36,23 @@
                           = lang
                 .col-sm-12.col-lg-6.col-md-6
                   .form-group.margin
-                    label for="lang"
-                      = t('dashboard.site.category')
-                    select#category.form-control name="category"
-           .box-footer
+                    = f.inputs :description, input_html: {class: 'form-control', label: t('dashboard.site.description')}
+              .row
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
+                .col-sm-12.col-lg-6.col-md-6
+                  .form-group.margin
+                    = f.inputs :locked, input_html: {class: 'form-control', label: t('dashboard.site.loked')}
+                    | GEARS:
+              .row
+                .col-sm-12.col-lg-6.col-md-6
+                  = render partial: 'dashboard/sites/carousel'
+            .box-footer
               .row
                 .col-sm-6.col-xs-12
                   button.btn.btn-primary.change_button.btn-block
-                    = t('faalis.page.dashboard.menu.change')
+                    = t('faalis.page.dashboard.menu.save')
 
                 .col-sm-6.pull-right.col-xs-12
                   button.btn.btn-danger.delete_button.btn-block
-                    = t('faalis.page.dashboard.menu.cansel')
+                    = t('faalis.page.dashboard.menu.cancel')
