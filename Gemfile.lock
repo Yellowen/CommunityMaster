@@ -89,7 +89,7 @@ PATH
 PATH
   remote: ../faalis_blog
   specs:
-    faalis-blog (0.2.0)
+    faalis-blog (0.3.0)
       faalis (> 2)
       faalis-tags
       redcarpet
@@ -112,7 +112,7 @@ PATH
 PATH
   remote: ../faalis_page
   specs:
-    faalis-page (2.0.0)
+    faalis-page (2.1.1)
       faalis
       rails-assets-bootstrap-treeview
       redcarpet
@@ -331,6 +331,11 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    liquid (3.0.6)
+    liquid-rails (0.1.3)
+      kaminari (~> 0.16.1)
+      liquid (>= 3.0.0)
+      rails (>= 3.2)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
@@ -637,6 +642,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   launchy
+  liquid-rails
   minitest-around
   minitest-rails!
   minitest-rails-capybara!
