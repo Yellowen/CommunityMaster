@@ -15,10 +15,10 @@
                           input.input-lg#text.form-control name="name" placeholder=(t('dashboard.site.name'))
                           span.input-group-addon
                             b -
-                          select#namespace.form-control name="namespace"
+                          select#namespace.select-dynamic.multiple.input-lg.form-control name="namespace"
                             - @namespaces.each do |namespace|
-                            option value=(namespace)
-                              = namespace
+                              option value=(namespace.name)
+                                = namespace.name
                           span.input-group-addon
                             b .domain.com
               .row
