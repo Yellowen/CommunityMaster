@@ -24,15 +24,13 @@ class ApplicationController < ActionController::Base
         inject_views_paths(SiteFramework::Engine.view_path_prefix)
 
       end
+    else
+      prepend_view_path "#{Rails.root}/app/views"
     end
   end
 
   def inject_views_paths(prefix)
-    if SiteFramework.current_site.nil?
-      prepend_view_path "#{Rails.root}/app/views"
-    else
-      prepend_view_path "#{prefix}/#{request.site.default_template}/views"
-    end
+    prepend_view_path "#{prefix}/#{request.site.default_template}/views"
   end
 
   def inject_assets_paths(theme_name)
