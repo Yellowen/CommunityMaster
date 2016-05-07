@@ -12,6 +12,10 @@ class Dashboard::SitesController < Dashboard::ApplicationController
 
   def before_create_hook(resource)
     resource.user = current_user
+
   end
 
+  def new_hook(resource)
+    @namespaces = current_user.namespaces
+  end
 end
