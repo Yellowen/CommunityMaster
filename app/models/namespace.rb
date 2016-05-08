@@ -16,4 +16,5 @@ class Namespace < ApplicationRecord
   belongs_to :user, class_name: 'Faalis::User'
 
   validates :name, presence: true
+
 end

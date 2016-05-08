@@ -2,5 +2,4 @@
 Faalis::User.class_eval do
   has_many :sites if Faalis::ORM.active_record?
   has_many :namespaces
-
 end
