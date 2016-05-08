@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     # Your API routes goes here.
   end
 
-
   in_dashboard do
     resources :domains
     resources :sites
