@@ -22,7 +22,7 @@ SiteFramework::Domain.create!(site: radio_boot,
 
 tech5 = SiteFramework::Site.create!(title: 'Tech5',
   description: 'پادکست تک فایو کار مشترکی از سلام دنیا و رادیو بوت',
-  default_template: 'tech5',
+  default_template: 'Soprano',
   site_category: category)
 
 SiteFramework::Domain.create!(site: tech5,
