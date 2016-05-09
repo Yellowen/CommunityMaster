@@ -1,7 +1,7 @@
 class Dashboard::SitesController < Dashboard::ApplicationController
   #engine 'SiteFramework::Site'
 
-  override_views :new, :edit
+  override_views :new
   model_name 'SiteFramework::Site'
 
   in_form do |form|
@@ -11,8 +11,6 @@ class Dashboard::SitesController < Dashboard::ApplicationController
   private
 
   def before_create_hook(resource)
-    #resource.user_id = current_user.id
-
     @namespace = Namespace.find_or_create_by(
       name: params[:namespace],
       user: current_user)
@@ -35,6 +33,8 @@ class Dashboard::SitesController < Dashboard::ApplicationController
   end
 
   def new_hook(resource)
-    @namespaces = current_user.namespaces
+    #@namespaces = current_user.namespaces
+    @namespaces = Namespace.where(user_id: current_user.id)
   end
+
 end
