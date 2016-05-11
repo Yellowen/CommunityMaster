@@ -2,6 +2,8 @@ module Concerns
   module ViewLoader
     extend ActiveSupport::Concern
 
+    PER_SITE_VIEWS_PATH = "#{Rails.root}/sites/"
+
     included do
       override_view_paths
     end
@@ -29,6 +31,7 @@ module Concerns
 
     def inject_views_paths(prefix)
       prepend_view_path "#{prefix}/#{request.site.default_template}/views"
+      prepend_view_path "#{PER_SITE_VIEWS_PATH}/#{request.site.id}/views"
     end
 
     def inject_assets_paths(theme_name)
@@ -36,12 +39,19 @@ module Concerns
 
       if Rails.env.development? || Rails.env.test?
         theme_path = "#{Rails.root}/../template_master/templates/"
+        override_path = "#{PER_SITE_VIEWS_PATH}/#{request.site.id}/assets/"
       else
         theme_path = "#{Rails.root}/../../shared/template_master/templates/"
+        override_path = nil
       end
 
       assets_types.each do |type|
-        path = "#{theme_path}#{assets_path}/#{type}"
+        path  = "#{theme_path}#{assets_path}/#{type}"
+
+        # Path for each site specific assets
+        spath = "#{override_path}/#{type}"
+
+        Rails.application.config.assets.paths << spath if override_path
         Rails.application.config.assets.paths << path
       end
     end
