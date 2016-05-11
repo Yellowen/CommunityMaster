@@ -1,14 +1,23 @@
 # This migration comes from faalis_blog (originally 20160219191902)
 class CreateFaalisBlogPosts < ActiveRecord::Migration
   def change
-    create_table :faalis_blog_posts do |t|
+    args = {}
+    args[:id] = :uuid if Faalis::Engine.use_uuid
+
+    create_table :faalis_blog_posts, **args do |t|
       t.string :title
       t.string :permalink
       t.text   :raw_content
       t.text   :content
-      t.integer :category_id
+      if  Faalis::Engine.use_uuid
+        t.uuid :category_id
+        t.uuid :user_id
+      else
+        t.integer :category_id
+        t.integer :user_id
+      end
+
       t.boolean :published
-      t.integer :user_id
       t.boolean :allow_comments, default: true
       t.boolean :members_only, default: false
 
