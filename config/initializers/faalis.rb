@@ -6,7 +6,6 @@ Faalis::Engine.setup do |config|
   config.orm = 'active_record'
 
   config.site_title = I18n.t('community_master')
-  config.slug = I18n.t('slug')
-  # Url prefix for dashboard section. default is '/dashboard'
-  # config.dashboard_namespace = :dashboard
+  config.slug       = I18n.t('slug')
+  config.use_uuid   = true
 end

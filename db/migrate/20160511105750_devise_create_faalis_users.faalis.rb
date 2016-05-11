@@ -1,7 +1,10 @@
 # This migration comes from faalis (originally 20131013091000)
 class DeviseCreateFaalisUsers < ActiveRecord::Migration
   def change
-    create_table(:faalis_users) do |t|
+    args = {}
+    args[:id] = :uuid if Faalis::Engine.use_uuid
+
+    create_table(:faalis_users, **args) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""

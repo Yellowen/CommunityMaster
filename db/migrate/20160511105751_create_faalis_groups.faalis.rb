@@ -1,7 +1,10 @@
 # This migration comes from faalis (originally 20131020124701)
 class CreateFaalisGroups < ActiveRecord::Migration
   def change
-    create_table :faalis_groups do |t|
+    args = {}
+    args[:id] = :uuid if Faalis::Engine.use_uuid
+
+    create_table :faalis_groups, **args do |t|
       t.string :name
       t.string :role
 

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503063331) do
+ActiveRecord::Schema.define(version: 20160511105756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "application_models", force: :cascade do |t|
     t.string   "model"
@@ -71,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160503063331) do
   add_index "faalis_comments", ["commentable_id", "commentable_type"], name: "index_faalis_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "faalis_comments", ["user_id"], name: "index_faalis_comments_on_user_id", using: :btree
 
-  create_table "faalis_groups", force: :cascade do |t|
+  create_table "faalis_groups", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "role"
     t.datetime "created_at"
@@ -80,14 +81,14 @@ ActiveRecord::Schema.define(version: 20160503063331) do
 
   add_index "faalis_groups", ["role"], name: "index_faalis_groups_on_role", unique: true, using: :btree
 
-  create_table "faalis_groups_permissions", force: :cascade do |t|
-    t.integer "permission_id"
-    t.integer "group_id"
+  create_table "faalis_groups_permissions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid "permission_id"
+    t.uuid "group_id"
   end
 
   create_table "faalis_groups_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+    t.uuid "user_id"
+    t.uuid "group_id"
   end
 
   add_index "faalis_groups_users", ["user_id", "group_id"], name: "by_user_and_group", unique: true, using: :btree
@@ -156,7 +157,7 @@ ActiveRecord::Schema.define(version: 20160503063331) do
   add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink", using: :btree
   add_index "faalis_page_pages", ["site_id"], name: "index_faalis_page_pages_on_site_id", using: :btree
 
-  create_table "faalis_permissions", force: :cascade do |t|
+  create_table "faalis_permissions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "model"
     t.string   "permission_type"
     t.datetime "created_at"
@@ -165,20 +166,20 @@ ActiveRecord::Schema.define(version: 20160503063331) do
 
   add_index "faalis_permissions", ["model"], name: "index_faalis_permissions_on_model", using: :btree
 
-  create_table "faalis_user_messages", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "reciver_id"
+  create_table "faalis_user_messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "sender_id"
+    t.uuid     "receiver_id"
     t.boolean  "read_only"
     t.text     "content"
     t.text     "raw_content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "faalis_user_messages", ["reciver_id"], name: "index_faalis_user_messages_on_reciver_id", using: :btree
+  add_index "faalis_user_messages", ["receiver_id"], name: "index_faalis_user_messages_on_receiver_id", using: :btree
   add_index "faalis_user_messages", ["sender_id"], name: "index_faalis_user_messages_on_sender_id", using: :btree
 
-  create_table "faalis_users", force: :cascade do |t|
+  create_table "faalis_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
