@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511105756) do
+ActiveRecord::Schema.define(version: 20160514100346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160511105756) do
     t.datetime "updated_at"
   end
 
-  create_table "faalis_blog_categories", force: :cascade do |t|
+  create_table "faalis_blog_categories", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "permalink"
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 20160511105756) do
 
   add_index "faalis_blog_categories", ["site_id"], name: "index_faalis_blog_categories_on_site_id", using: :btree
 
-  create_table "faalis_blog_posts", force: :cascade do |t|
+  create_table "faalis_blog_posts", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.string   "permalink"
     t.text     "raw_content"
     t.text     "content"
-    t.integer  "category_id"
+    t.uuid     "category_id"
+    t.uuid     "user_id"
     t.boolean  "published"
-    t.integer  "user_id"
     t.boolean  "allow_comments",   default: true
     t.boolean  "members_only",     default: false
     t.string   "meta_title"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20160511105756) do
 
   add_index "faalis_groups_users", ["user_id", "group_id"], name: "by_user_and_group", unique: true, using: :btree
 
-  create_table "faalis_media_files", force: :cascade do |t|
+  create_table "faalis_media_files", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",        null: false
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20160511105756) do
     t.datetime "file_updated_at"
   end
 
-  create_table "faalis_media_images", force: :cascade do |t|
+  create_table "faalis_media_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "caption"
     t.text     "subcaption"
     t.datetime "created_at",         null: false
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20160511105756) do
     t.datetime "image_updated_at"
   end
 
-  create_table "faalis_media_videos", force: :cascade do |t|
+  create_table "faalis_media_videos", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "caption"
     t.text     "subcaption"
     t.datetime "created_at",         null: false
@@ -126,10 +126,10 @@ ActiveRecord::Schema.define(version: 20160511105756) do
     t.datetime "video_updated_at"
   end
 
-  create_table "faalis_page_menus", force: :cascade do |t|
+  create_table "faalis_page_menus", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.boolean  "published",  default: false
-    t.integer  "user_id"
+    t.uuid     "user_id"
     t.json     "data"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -138,13 +138,13 @@ ActiveRecord::Schema.define(version: 20160511105756) do
 
   add_index "faalis_page_menus", ["site_id"], name: "index_faalis_page_menus_on_site_id", using: :btree
 
-  create_table "faalis_page_pages", force: :cascade do |t|
+  create_table "faalis_page_pages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.string   "layout",       default: "layouts/page"
     t.string   "description"
     t.string   "tags"
     t.string   "permalink"
-    t.integer  "user_id"
+    t.uuid     "user_id"
     t.text     "raw_content"
     t.text     "content"
     t.boolean  "members_only", default: false
@@ -165,6 +165,35 @@ ActiveRecord::Schema.define(version: 20160511105756) do
   end
 
   add_index "faalis_permissions", ["model"], name: "index_faalis_permissions_on_model", using: :btree
+
+  create_table "faalis_shop_categories", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "permalink"
+    t.boolean  "lock",         default: true
+    t.boolean  "members_only", default: false
+    t.uuid     "parent_id"
+    t.uuid     "user_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "site_id"
+  end
+
+  add_index "faalis_shop_categories", ["permalink"], name: "index_faalis_shop_categories_on_permalink", using: :btree
+  add_index "faalis_shop_categories", ["site_id"], name: "index_faalis_shop_categories_on_site_id", using: :btree
+
+  create_table "faalis_shop_products", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "user_id"
+    t.string   "name"
+    t.float    "price"
+    t.integer  "category_id"
+    t.boolean  "lock"
+    t.boolean  "private"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.uuid     "parent_id"
+  end
 
   create_table "faalis_user_messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "sender_id"
@@ -315,16 +344,20 @@ ActiveRecord::Schema.define(version: 20160511105756) do
     t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
+    t.integer  "site_id"
   end
 
+  add_index "taggings", ["site_id"], name: "index_taggings_on_site_id", using: :btree
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
+    t.integer "site_id"
     t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["site_id"], name: "index_tags_on_site_id", using: :btree
 
 end

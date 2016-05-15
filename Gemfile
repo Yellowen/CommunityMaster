@@ -100,6 +100,7 @@ if File.exists?(development_file)
   gem 'faalis-page',     path: '../faalis_page'
   gem 'faalis-blog',     path: '../faalis_blog'
   gem 'faalis-tags',     path: '../faalis_tags'
+  gem 'faalis-shop',     path: '../faalis_shop'
 
   gem 'site_framework',  path: '../site_framework'
   gem 'amd', path: '../amd'
@@ -113,6 +114,7 @@ else
   gem 'faalis-tags',     :github => '../faalis_tags'
   gem 'faalis',          :github => 'Yellowen/Faalis'
   gem 'site_framework',  :github => 'Yellowen/site_framework'
+  gem 'faalis-shop',     :github =>  'Yellowen/faalis_shop'
   #gem 'sass', github: 'Yellowen/sass', branch: '3422'
   #gem 'sprockets', github: 'Yellowen/sprockets', branch: '3.x'
 end

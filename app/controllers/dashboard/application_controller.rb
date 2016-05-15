@@ -44,6 +44,14 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
           model: 'Faalis::Comments::Comment')
       end
 
+      s.menu(t('shop'), icon: 'fa fa-cart-plus') do
+        s.item(t('products categories'),
+          url: faalis_shop.dashboard_categories_path,
+          model: 'Faalis::Shop::Category')
+        s.item(t('products'),
+          url: faalis_shop.dashboard_products_path,
+          model: 'Faalis::Shop::Product')
+      end
     end
   end
 end
