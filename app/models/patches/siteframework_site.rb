@@ -3,22 +3,20 @@ SiteFramework::Site.class_eval do
 
   include Faalis::Concerns::Authorizable
 
-  # Setup required FS structre for current site instance
-  after_create :setup_tree
-
   belongs_to :site_category
   belongs_to :user, class_name: 'Faalis::User'
   has_many :domains
 
+  # Validations -----------------------
   validates(:title, presence: true)
   validates(:site_category_id, presence: true)
+  #TODO: We must have a validation for identifier domain
 
   validates_associated :site_category
   validates_associated :user
 
-  private
-
-  def setup_tree
-    FileUtils.mkdir_p "#{Rails.application.sites_tree}/#{id}/views"
+  # Methods ---------------------------
+  def identifier_domain
+    domains.where(alias: false).first
   end
 end

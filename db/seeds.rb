@@ -28,17 +28,7 @@ unless Rails.env.production?
     name:'radioboot',
     namespace: ns,
     user: user,
-    alias: true)
-
-
-  tech5 = SiteFramework::Site.create!(title: 'Tech5',
-    description: 'پادکست تک فایو کار مشترکی از سلام دنیا و رادیو بوت',
-    default_template: 'Soprano',
-    site_category: category)
-
-  SiteFramework::Domain.create!(site: tech5,
-    name:'tech5.ir',
-    alias: 'www.tech5.ir')
+    alias: false)
 
 
   ciwic = SiteFramework::Site.create!(title: 'شرکت بین المللی کاسپین ایده ویرا',
@@ -47,5 +37,16 @@ unless Rails.env.production?
     site_category: category)
 
   SiteFramework::Domain.create!(site: ciwic,
-    name: 'ciwic.faalis.io', alias: 'ciwic.local')
+    name: 'ciwic.faalis.io',
+    alias: true,
+    namespace: ns,
+    user: user)
+
+  SiteFramework::Domain.create!(site: ciwic,
+    name: 'ciwic',
+    alias: false,
+    namespace: ns,
+    user: user)
+
+
 end

@@ -35,11 +35,14 @@ module Concerns
       else
         prepend_view_path "#{Rails.root}/app/views"
       end
+
     end
 
     def inject_views_paths(prefix)
       prepend_view_path "#{prefix}/#{request.site.default_template}/views"
-      prepend_view_path "#{PER_SITE_VIEWS_PATH}/#{request.site.id}/views"
+
+      domain = request.site.identifier_domain.to_fqdn
+      prepend_view_path "#{PER_SITE_VIEWS_PATH}/#{domain}/views"
     end
 
     def inject_assets_paths(theme_name)
