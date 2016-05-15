@@ -4,7 +4,7 @@ SiteFramework::Site.class_eval do
   include Faalis::Concerns::Authorizable
 
   # Setup required FS structre for current site instance
-  before_create :setup_tree
+  after_create :setup_tree
 
   belongs_to :site_category
   belongs_to :user, class_name: 'Faalis::User'
