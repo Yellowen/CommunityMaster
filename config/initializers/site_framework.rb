@@ -6,4 +6,5 @@ SiteFramework::Engine.setup do |config|
   end
 
   config.default_domains = ['localhost', 'example.com']
+  config.use_uuid = true
 end

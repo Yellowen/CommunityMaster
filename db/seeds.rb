@@ -9,13 +9,13 @@ Faalis::Engine.load_seed
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 unless Rails.env.production?
   category = SiteCategory.create!(name: 'عمومی')
-  user     = Faalis::User.find(1)
+  user     = Faalis::User.find_by(email: 'admin@example.com')
 
   ns = Namespace.create(name: 'yellowen', user: user)
 
   radio_boot = SiteFramework::Site.create!(title: 'رادیو بوت',
     description: 'پادکست رادیو بوت، به بهانه تکنولوژی',
-    default_template: 'Soprano',
+    default_template: 'soprano',
     site_category: category)
 
   SiteFramework::Domain.create!(site: radio_boot,

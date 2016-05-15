@@ -1,14 +1,19 @@
 module Concerns
+  # This concern included in application controller and is responsible
+  # to inject suitable paths to `view_paths` based on current site
   module ViewLoader
     extend ActiveSupport::Concern
 
-    PER_SITE_VIEWS_PATH = "#{Rails.root}/sites/"
+    PER_SITE_VIEWS_PATH = Rails.application.sites_tree
 
     included do
+      # Override the view path. check the class method
       override_view_paths
     end
 
     module ClassMethods
+      # Simple remove the default view path (the one which loads the view from
+      # app/views). Sites should not have access to Mother App's views
       def override_view_paths
         tmp = view_paths.to_a
         tmp.shift
@@ -17,6 +22,9 @@ module Concerns
     end
 
     private
+
+    # This is a method to override the super method which is defined in
+    # site framework. We altered the path creation process.
     def set_template_path
       if request.respond_to?(:site) && request.site
         # We are in site namespace

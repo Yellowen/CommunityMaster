@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
   private
 
   def index_liquid_tags
-    ['Faalis::Page::Tags::Menu']
+    ['Faalis::Page::Components::Menu']
   end
 end

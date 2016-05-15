@@ -16,7 +16,6 @@ class CreateFaalisShopCategories < ActiveRecord::Migration
         t.uuid :parent_id
         t.uuid :user_id
       else
-
         t.integer :parent_id
         t.integer :user_id
       end

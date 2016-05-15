@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.boolean  "members_only", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "faalis_blog_categories", ["site_id"], name: "index_faalis_blog_categories_on_site_id", using: :btree
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.string   "meta_description"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "faalis_blog_posts", ["category_id"], name: "index_faalis_blog_posts_on_category_id", using: :btree
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.json     "data"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "faalis_page_menus", ["site_id"], name: "index_faalis_page_menus_on_site_id", using: :btree
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.boolean  "published",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink", using: :btree
@@ -176,14 +176,13 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.uuid     "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "faalis_shop_categories", ["permalink"], name: "index_faalis_shop_categories_on_permalink", using: :btree
   add_index "faalis_shop_categories", ["site_id"], name: "index_faalis_shop_categories_on_site_id", using: :btree
 
   create_table "faalis_shop_products", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid     "user_id"
     t.string   "name"
     t.float    "price"
     t.integer  "category_id"
@@ -193,7 +192,11 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.uuid     "parent_id"
+    t.uuid     "user_id"
+    t.uuid     "site_id"
   end
+
+  add_index "faalis_shop_products", ["site_id"], name: "index_faalis_shop_products_on_site_id", using: :btree
 
   create_table "faalis_user_messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "sender_id"
@@ -232,13 +235,13 @@ ActiveRecord::Schema.define(version: 20160514100346) do
   add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true, using: :btree
   add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true, using: :btree
 
-  create_table "namespaces", force: :cascade do |t|
-    t.boolean  "locked"
+  create_table "namespaces", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.boolean  "locked",      default: false
     t.string   "name"
     t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.uuid     "user_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "podcasts_episodes", force: :cascade do |t|
@@ -260,7 +263,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "podcasts_episodes", ["number"], name: "index_podcasts_episodes_on_number", using: :btree
@@ -273,7 +276,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.integer  "episode_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "podcasts_links", ["site_id"], name: "index_podcasts_links_on_site_id", using: :btree
@@ -288,7 +291,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "podcasts_participants", ["site_id"], name: "index_podcasts_participants_on_site_id", using: :btree
@@ -299,7 +302,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.boolean  "host",           default: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "podcasts_parties", ["site_id"], name: "index_podcasts_parties_on_site_id", using: :btree
@@ -311,20 +314,20 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "site_framework_domains", force: :cascade do |t|
+  create_table "site_framework_domains", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
-    t.integer  "site_id"
-    t.integer  "parent_id"
+    t.uuid     "site_id"
+    t.uuid     "parent_id"
     t.boolean  "alias",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "namespace_id"
-    t.integer  "user_id"
+    t.uuid     "namespace_id"
+    t.uuid     "user_id"
   end
 
   add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true, using: :btree
 
-  create_table "site_framework_sites", force: :cascade do |t|
+  create_table "site_framework_sites", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.datetime "created_at"
@@ -344,7 +347,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
-    t.integer  "site_id"
+    t.uuid     "site_id"
   end
 
   add_index "taggings", ["site_id"], name: "index_taggings_on_site_id", using: :btree
@@ -353,7 +356,7 @@ ActiveRecord::Schema.define(version: 20160514100346) do
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
-    t.integer "site_id"
+    t.uuid    "site_id"
     t.integer "taggings_count", default: 0
   end
 

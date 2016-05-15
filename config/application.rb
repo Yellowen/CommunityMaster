@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module CommunityMaster
   class Application < Rails::Application
+
+    def sites_tree
+      "#{Rails.root}/sites"
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
