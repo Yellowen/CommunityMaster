@@ -6,7 +6,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
       s.media_entries
       s.page_entries
       s.blog_entries
-
+      s.shop_entries
 
       s.menu(t('sites'), icon: 'fa fa-sitemap') do
         s.item(t('namespaces'),
@@ -42,15 +42,6 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
         s.item(t('comments'),
           url: faalis_comments.dashboard_comments_path,
           model: 'Faalis::Comments::Comment')
-      end
-
-      s.menu(t('shop'), icon: 'fa fa-cart-plus') do
-        s.item(t('products categories'),
-          url: faalis_shop.dashboard_categories_path,
-          model: 'Faalis::Shop::Category')
-        s.item(t('products'),
-          url: faalis_shop.dashboard_products_path,
-          model: 'Faalis::Shop::Product')
       end
     end
   end
