@@ -191,7 +191,6 @@ ActiveRecord::Schema.define(version: 20160514100346) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.uuid     "parent_id"
     t.uuid     "user_id"
     t.uuid     "site_id"
   end
