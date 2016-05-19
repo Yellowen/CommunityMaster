@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514100346) do
+ActiveRecord::Schema.define(version: 20160519121221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,30 @@ ActiveRecord::Schema.define(version: 20160514100346) do
 
   add_index "faalis_shop_categories", ["permalink"], name: "index_faalis_shop_categories_on_permalink", using: :btree
   add_index "faalis_shop_categories", ["site_id"], name: "index_faalis_shop_categories_on_site_id", using: :btree
+
+  create_table "faalis_shop_order_items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.integer  "total"
+    t.uuid     "user_id"
+    t.uuid     "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid     "site_id"
+  end
+
+  add_index "faalis_shop_order_items", ["site_id"], name: "index_faalis_shop_order_items_on_site_id", using: :btree
+
+  create_table "faalis_shop_orders", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.integer  "status"
+    t.float    "tax"
+    t.uuid     "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid     "site_id"
+  end
+
+  add_index "faalis_shop_orders", ["site_id"], name: "index_faalis_shop_orders_on_site_id", using: :btree
 
   create_table "faalis_shop_products", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
