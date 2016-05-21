@@ -82,7 +82,7 @@ PATH
 PATH
   remote: ../amd
   specs:
-    amd (0.1.4)
+    amd (0.1.5)
       jquery-rails (>= 4)
       rails (>= 4)
 

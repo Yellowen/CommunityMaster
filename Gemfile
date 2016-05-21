@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+sssource 'https://rubygems.org'
 source 'http://rails-assets.org' do
   gem 'rails-assets-sugar'
   gem 'rails-assets-bootstrap-rtl'
@@ -11,6 +11,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0.beta3'
+#gem 'rails', path: '../../rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -106,6 +107,7 @@ if File.exists?(development_file)
   gem 'amd', path: '../amd'
   #gem 'sass', path: '../sass'
   #gem 'sprockets', path: '../sprockets'
+
 else
   gem 'faalis-comments', :github => 'Yellowen/faalis-comments'
   gem 'faalis-media',    :github => 'Yellowen/faalis_media', require: 'faalis/media'

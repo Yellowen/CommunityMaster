@@ -13,6 +13,14 @@ module CommunityMaster
       "#{Rails.root}/sites"
     end
 
+    def templates_path
+      if !Rails.env.production?
+        "#{Rails.root}/../template_master/templates/"
+      else
+        "#{Rails.root}/../../shared/template_master/templates/"
+      end
+    end
+
     def cloud_domain
       case Rails.env
       when 'production'
@@ -21,6 +29,8 @@ module CommunityMaster
         'ycloud.local'
       end
     end
+
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

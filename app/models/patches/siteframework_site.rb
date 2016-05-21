@@ -1,5 +1,8 @@
 # Extend SiteFramework::Site class to add extra functionality
-SiteFramework::Site.class_eval do
+SiteFramework::Site
+class SiteFramework::Site
+
+#SiteFramework::Site.class_eval do
 
   include Faalis::Concerns::Authorizable
 

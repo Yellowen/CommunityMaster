@@ -30,12 +30,11 @@ module Concerns
         # We are in site namespace
         unless request.site.default_template.blank?
           inject_views_paths(SiteFramework::Engine.view_path_prefix)
-
+          #inject_assets_paths(request.site.default_template)
         end
       else
         prepend_view_path "#{Rails.root}/app/views"
       end
-
     end
 
     def inject_views_paths(prefix)
@@ -57,10 +56,10 @@ module Concerns
       end
 
       assets_types.each do |type|
-        path  = "#{theme_path}#{assets_path}/#{type}"
+        path  = "#{theme_path}#{assets_path}#{type}"
 
         # Path for each site specific assets
-        spath = "#{override_path}/#{type}"
+        spath = "#{override_path}#{type}"
 
         Rails.application.config.assets.paths << spath if override_path
         Rails.application.config.assets.paths << path

@@ -18,6 +18,8 @@ module Concerns
       tags = []
       tags = send(method_name) if respond_to?(method_name, true)
 
+      tags = default_liquid_tags + tags
+
       tags.each do |tag|
         #TODO: Replace the immediate registeration with on demand
         #      registeration.
@@ -41,5 +43,8 @@ module Concerns
       end
     end
 
+    def default_liquid_tags
+      ['Assets::StylesheetLinkTag']
+    end
   end
 end
