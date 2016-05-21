@@ -44,7 +44,11 @@ module Concerns
     end
 
     def default_liquid_tags
-      ['Assets::StylesheetLinkTag']
+      [
+        'Assets::StylesheetLinkTag',
+        'Assets::JavascriptIncludeTag',
+        'Assets::JavascriptIncludeTheme'
+      ]
     end
   end
 end
