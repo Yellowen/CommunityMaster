@@ -9,7 +9,8 @@ module Assets
     self.debug_assets        = Rails.application.config.assets[:debug]
     self.resolve_assets_with = Rails.application.config.assets.resolve_with
     self.precompiled_asset_checker = -> logical_path {
-      Rails.application.asset_precompiled?(logical_path)
+      #Rails.application.asset_precompiled?(logical_path)
+      true
     }
 
     def self.name
@@ -21,10 +22,10 @@ module Assets
 
       @args = args.split(',').map(&:strip)
 
-      @file       = @args[0]
+      @file       = @args[0].gsub('"', '').gsub("'", '')
       @remote     = @args.fetch(1, :true).to_s
 
-      @manifest = file
+      @manifest = @file
     end
 
     def render(context)

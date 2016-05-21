@@ -9,7 +9,8 @@ module Assets
     self.debug_assets        = Rails.application.config.assets[:debug]
     self.resolve_assets_with = Rails.application.config.assets.resolve_with
     self.precompiled_asset_checker = -> logical_path {
-      Rails.application.asset_precompiled?(logical_path)
+      #Rails.application.asset_precompiled?(logical_path)
+      true
     }
 
     def self.name
@@ -27,7 +28,7 @@ module Assets
 
       @args = args.split(',').map(&:strip)
 
-      @theme_name = @args[0]
+      @theme_name = @args[0].gsub('"', '').gsub("'", '')
       @media      = @args.fetch(1, :all).to_sym
       @remote     = @args.fetch(2, :true).to_s
 

@@ -11,8 +11,8 @@ module Assets
       if args.nil? || args.empty?
         raise ArgumentError.new "'theme_name' argument is mandatory for 'javascript_include_tag'"
       end
-
-      @manifest = "#{args.strip}/application"
+      theme = args.strip.gsub('"', '').gsub("'", '')
+      @manifest = "#{theme}/application"
       @remote   = true
     end
   end
