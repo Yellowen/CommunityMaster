@@ -1,3 +1,4 @@
+# REQUIRED TEST
 module Assets
   class JavascriptIncludeTheme < JavascriptIncludeTag
 

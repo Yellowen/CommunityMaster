@@ -1,3 +1,4 @@
+# REQUIRED TEST
 module Assets
   class StylesheetLinkTag < ::Liquid::Tag
     include Sprockets::Rails::Helper

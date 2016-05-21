@@ -1,3 +1,4 @@
+# REQUIRED TEST
 module Assets
   class JavascriptIncludeTag < ::Liquid::Tag
     include Sprockets::Rails::Helper
