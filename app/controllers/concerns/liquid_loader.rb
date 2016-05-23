@@ -47,7 +47,8 @@ module Concerns
       [
         'Assets::StylesheetLinkTag',
         'Assets::JavascriptIncludeTag',
-        'Assets::JavascriptIncludeTheme'
+        'Assets::JavascriptIncludeTheme',
+        'Site::SiteTitleTag',
       ]
     end
   end
