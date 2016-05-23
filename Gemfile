@@ -105,4 +105,4 @@ end
 # Gems to update with rails 5
 
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
-gem 'liquid-rails'
+gem 'liquid-rails', path: '../liquid-rails'
