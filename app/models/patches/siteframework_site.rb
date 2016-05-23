@@ -5,6 +5,7 @@ class SiteFramework::Site
 #SiteFramework::Site.class_eval do
 
   include Faalis::Concerns::Authorizable
+  include Concerns::Site::Settings
 
   belongs_to :site_category
   belongs_to :user, class_name: 'Faalis::User'

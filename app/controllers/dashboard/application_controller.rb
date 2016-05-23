@@ -6,7 +6,7 @@ class Dashboard::ApplicationController < Faalis::Dashboard::ApplicationControlle
       s.media_entries
       s.page_entries
       s.blog_entries
-      s.shop_entries
+      #s.shop_entries
 
       s.menu(t('sites'), icon: 'fa fa-sitemap') do
         s.item(t('namespaces'),
