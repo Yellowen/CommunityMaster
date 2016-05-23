@@ -106,3 +106,4 @@ end
 
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'liquid-rails', path: '../liquid-rails'
+gem 'ionicons-rails', path: '../ionicons-rails'
