@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     mount Faalis::Blog::Engine => '/'
     mount Faalis::Comments::Engine => '/'
     mount Faalis::Media::Engine => '/'
-    mount Faalis::Shop::Engine => '/'
+    mount Faalis::Shop::Engine => '/shop'
 
     root 'welcome#index'
   end
