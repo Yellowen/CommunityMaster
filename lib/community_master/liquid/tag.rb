@@ -23,23 +23,24 @@ module CommunityMaster
       end
 
       def initialize(name, args, options)
-      super
+        super
 
-      if !arguments.empty? && args.nil? || args.empty?
-        count = arguments.length
-        raise ArgumentError.new "'#{count}' argument(s) is/are needed for '#{self.class.name}' tag."
-      end
+        if !arguments.empty? && args.nil? || args.empty?
+          count = arguments.length
+          raise ArgumentError.new "'#{count}' argument(s) is/are needed for '#{self.class.name}' tag."
+        end
 
-      @direction   = Faalis::I18n.direction(I18n.locale)
+        @direction   = Faalis::I18n.direction(I18n.locale)
 
-      @args = args.split(',').map do |x|
-        x.strip.strip('"').strip("'")
-      end
+        @args = args.split(',').map do |x|
+          x.strip.strip('"').strip("'")
+        end
 
-      @params = {}
+        @params = {}
 
-      arguments.each_with_index do |arg, index|
-        @params[arg[:name]] = @args.fetch(index, arg[:default])
+        arguments.each_with_index do |arg, index|
+          @params[arg[:name]] = @args.fetch(index, arg[:default])
+        end
       end
     end
   end
