@@ -44,7 +44,7 @@ GIT
 PATH
   remote: ../Faalis/
   specs:
-    faalis (2.1.1)
+    faalis (2.2.0)
       admin_lte-rails (~> 2.3.0)
       amd
       coffee-rails
