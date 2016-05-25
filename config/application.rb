@@ -21,6 +21,15 @@ module CommunityMaster
       end
     end
 
+    def template_relative_path
+      if !Rails.env.production?
+        "../template_master/templates/"
+      else
+        "../../shared/template_master/templates/"
+      end
+    end
+
+
     def cloud_domain
       case Rails.env
       when 'production'

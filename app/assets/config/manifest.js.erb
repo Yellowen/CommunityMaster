@@ -8,6 +8,10 @@
 <%= "//= link #{theme}/ltr/application.css\n" %>
 <%= "//= link #{theme}/rtl/application.css\n" %>
 <%= "//= link #{theme}/application.js\n" %>
+<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/images\n" %>
+<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/fonts\n" %>
+<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/videos\n" %>
+<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/audios\n" %>
 <% end %>
 
 //= link faalis/dashboard/manifest.js

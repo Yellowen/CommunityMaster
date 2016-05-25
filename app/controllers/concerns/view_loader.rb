@@ -15,7 +15,6 @@ module Concerns
       # Simple remove the default view path (the one which loads the view from
       # app/views). Sites should not have access to Mother App's views
       def override_view_paths
-        puts "33333333333333333333333333333#", view_paths
         tmp = view_paths.to_a
         tmp.shift
         self.view_paths = tmp
