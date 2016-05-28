@@ -15,8 +15,11 @@ module Concerns
       # Simple remove the default view path (the one which loads the view from
       # app/views). Sites should not have access to Mother App's views
       def override_view_paths
-        tmp = view_paths.to_a
-        tmp.shift
+        #tmp = view_paths.to_a
+        tmp = view_paths.select do |p|
+          !p.to_s.start_with? Rails.root.to_s
+        end
+
         self.view_paths = tmp
       end
     end
@@ -35,6 +38,20 @@ module Concerns
       else
         prepend_view_path "#{Rails.root}/app/views"
       end
+
+      puts "====", view_paths.to_a
+
+    end
+
+    def view_paths
+      @view_paths = super.select do |p|
+        puts "-", p.to_s.start_with?(Rails.root.to_s)
+
+        if request.respond_to?(:site) && request.site
+          !p.to_s.start_with? Rails.root.to_s
+        end
+      end
+
     end
 
     def inject_views_paths(prefix)
