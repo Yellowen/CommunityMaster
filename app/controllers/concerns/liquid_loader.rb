@@ -49,6 +49,9 @@ module Concerns
         'Assets::JavascriptIncludeTag',
         'Assets::JavascriptIncludeTheme',
         'Site::SiteTitleTag',
+        'Site::SettingsTag',
+        'Utils::PageDirectionTag',
+        'Utils::LangTag',
       ]
     end
   end

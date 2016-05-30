@@ -41,5 +41,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options:
-  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+  #config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 end
