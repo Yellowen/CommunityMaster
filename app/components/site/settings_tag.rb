@@ -6,7 +6,8 @@ module Site
 
     def render(context)
       site = SiteFramework.current_site
-      site.settings.send(params[:key])
+      return site.settings.send(params[:key]) if params[:key]
+      ''
     end
   end
 end

@@ -25,15 +25,15 @@ module CommunityMaster
       def initialize(name, args, options)
         super
 
-        if !arguments.empty? && args.nil? || args.empty?
-          count = arguments.length
-          raise ArgumentError.new "'#{count}' argument(s) is/are needed for '#{self.class.name}' tag."
+        if !arguments.empty? && (args.nil? || args.empty?)
+            count = arguments.length
+            raise ArgumentError.new "'#{count}' argument(s) is/are needed for '#{self.class.name}' tag."
         end
 
         @direction   = Faalis::I18n.direction(I18n.locale)
 
         @args = args.split(',').map do |x|
-          x.strip.strip('"').strip("'")
+          x.strip.tr('""', '').tr("''", '')
         end
 
         @params = {}
@@ -41,6 +41,10 @@ module CommunityMaster
         arguments.each_with_index do |arg, index|
           @params[arg[:name]] = @args.fetch(index, arg[:default])
         end
+      end
+
+      def arguments
+        @arguments ||= []
       end
     end
   end
