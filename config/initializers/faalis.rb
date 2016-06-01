@@ -9,3 +9,7 @@ Faalis::Engine.setup do |config|
   config.slug       = I18n.t('slug')
   config.use_uuid   = true
 end
+
+ActiveRecordQueryTrace.enabled = true
+ActiveRecordQueryTrace.level = :full
+ActiveRecordQueryTrace.lines = 50

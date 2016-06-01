@@ -13,6 +13,7 @@ module Concerns
     def set_template_path
       #if request.respond_to?(:site) && SiteFramework.current_site
       if SiteFramework.current_site
+
         # We are in site namespace
         unless SiteFramework.current_site.default_template.blank?
           inject_views_paths(SiteFramework::Engine.view_path_prefix)
@@ -39,7 +40,6 @@ module Concerns
 
     def inject_views_paths(prefix)
       prepend_view_path "#{prefix}/#{SiteFramework.current_site.default_template}/views"
-
       domain = SiteFramework.current_site.identifier_domain.to_fqdn
       prepend_view_path "#{PER_SITE_VIEWS_PATH}/#{domain}/views"
     end

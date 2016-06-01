@@ -171,6 +171,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_record_query_trace (1.5.3)
     activejob (5.0.0.rc1)
       activesupport (= 5.0.0.rc1)
       globalid (>= 0.3.6)
@@ -612,6 +613,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_record_query_trace
   acts-as-taggable-on!
   amd!
   bcrypt (~> 3.1.7)
