@@ -6,7 +6,6 @@
 <% Dir.glob("#{Rails.application.templates_path}/*") do |f| %>
 <% theme = f.split('/')[-1].strip %>
 <%= "//= link #{theme}/ltr/application.css\n" %>
-<% fail "<<<<<<<<<<<<<<<//= link #{theme}/ltr/application.css\n" %>
 <%= "//= link #{theme}/rtl/application.css\n" %>
 <%= "//= link #{theme}/application.js\n" %>
 <%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/images\n" %>

@@ -52,6 +52,7 @@ module Concerns
         'Site::SettingsTag',
         'Utils::PageDirectionTag',
         'Utils::LangTag',
+        'Faalis::Blog::LatestPostsTag',
       ]
     end
   end

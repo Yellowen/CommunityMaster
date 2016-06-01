@@ -1,5 +1,5 @@
 module Utils
-  class PageDirectionTag < ::CommunityMaster::Liquid::Tag
+  class PageDirectionTag < ::Faalis::Liquid::Tag
 
     tag_name 'page_direction'
 

@@ -1,5 +1,5 @@
 module Site
-  class SettingsTag < ::CommunityMaster::Liquid::Tag
+  class SettingsTag < ::Faalis::Liquid::Tag
     tag_name 'settings'
 
     argument name: :key

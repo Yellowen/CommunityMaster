@@ -1,5 +1,5 @@
 module Utils
-  class LangTag < ::CommunityMaster::Liquid::Tag
+  class LangTag < ::Faalis::Liquid::Tag
 
     tag_name 'lang'
 

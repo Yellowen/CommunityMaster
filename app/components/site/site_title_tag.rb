@@ -1,5 +1,5 @@
 module Site
-  class SiteTitleTag < ::CommunityMaster::Liquid::Tag
+  class SiteTitleTag < ::Faalis::Liquid::Tag
     tag_name 'site_title'
 
     def render(context)
