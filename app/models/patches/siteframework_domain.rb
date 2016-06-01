@@ -13,9 +13,10 @@ SiteFramework::Domain.class_eval do
   validates_associated :namespace
 
   def to_fqdn
-    return name if self.alias
+    return @name if @name
+    return @name = name if self.alias
     cloud_domain = Rails.application.cloud_domain
-    "#{name}-#{namespace.name}.#{cloud_domain}"
+    @name = "#{name}-#{namespace.name}.#{cloud_domain}"
   end
 
   private

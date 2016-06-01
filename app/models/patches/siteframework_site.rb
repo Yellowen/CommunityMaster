@@ -21,6 +21,6 @@ class SiteFramework::Site
 
   # Methods ---------------------------
   def identifier_domain
-    domains.where(alias: false).first
+    @identifier_domain ||= domains.where(alias: false).first
   end
 end

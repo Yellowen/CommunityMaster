@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rack-livereload'
   gem 'quiet_assets'
   gem 'colorize'
+  gem 'active_record_query_trace'
 end
 
 group :development do
