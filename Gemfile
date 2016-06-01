@@ -44,6 +44,7 @@ group :development, :test do
   gem 'guard-cane'
   gem 'rack-livereload'
   gem 'quiet_assets'
+  gem 'colorize'
 end
 
 group :development do
