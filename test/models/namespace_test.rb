@@ -15,12 +15,36 @@ require "test_helper"
 
 class NamespaceTest < ActiveSupport::TestCase
 
-  def namespace
-    @namespace ||= Namespace.new
+  before do
+    @@subject = ::Category
+    @user     = Fabricate(:user, password: '11111111',
+            password_confirmation: '11111111')
   end
 
-  def test_valid
-    assert namespace.valid?
+
+  test "won't save without a name" do
+    subject = @@subject.new(description: 'desc', user: @user)
+
+    result = subject.save
+
+    assert_not result, msg: 'Namespace saved without a title.'
+  end
+
+  test "category site name is unique" do
+    @@subject.create(name: 'c1')
+    c2 = @@subject.new(name: 'c2')
+
+    result = c2.save
+
+    assert_not result, msg: 'Site Category saved with permalink duplication'
+  end
+
+  test "won't save without a user" do
+    subject = @@subject.new(name: 'name', description: 'desc')
+
+    result = subject.save
+
+    assert_not result, msg: 'Namespace saved without a user.'
   end
 
 end

@@ -13,12 +13,26 @@ require "test_helper"
 
 class SiteCategoryTest < ActiveSupport::TestCase
 
-  def site_category
-    @site_category ||= SiteCategory.new
+  before do
+    @@subject = ::Category
+    #@category = Fabricate(:category)
   end
 
-  def test_valid
-    assert site_category.valid?
+  test "won't save without a name" do
+    subject = @@subject.new(description: 'desc')
+
+    result = subject.save
+
+    assert_not result, msg: 'Site Category saved without a title.'
+  end
+
+  test "category site name is unique" do
+    @@subject.create(name: 'c1')
+    c2 = @@subject.new(name: 'c2')
+
+    result = c2.save
+
+    assert_not result, msg: 'Site Category saved with permalink duplication'
   end
 
 end

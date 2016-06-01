@@ -12,5 +12,5 @@
 class SiteCategory < ActiveRecord::Base
   has_many :sites, class_name: 'SiteFramework::Site'
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end
