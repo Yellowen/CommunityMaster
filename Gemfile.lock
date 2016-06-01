@@ -625,6 +625,7 @@ DEPENDENCIES
   capistrano-rbenv!
   capybara
   coffee-rails (~> 4.1.0)
+  colorize
   connection_pool
   database_cleaner
   devise!

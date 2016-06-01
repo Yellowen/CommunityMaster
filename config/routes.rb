@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     mount Faalis::Shop::Engine => '/shop'
 
     root 'welcome#index'
+    if Rails.env.development?
+      get '*failed_path', to: 'welcome#not_found'
+    end
   end
 
   default_site(self) do
