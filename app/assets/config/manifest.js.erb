@@ -3,16 +3,18 @@
 //= link_directory ../javascripts .js
 //= link_tree ../stylesheets .css
 
-<% Dir.glob("#{Rails.application.templates_path}/*") do |f| %>
-<% theme = f.split('/')[-1].strip %>
-<%= "//= link #{theme}/ltr/application.css\n" %>
-<%= "//= link #{theme}/rtl/application.css\n" %>
-<%= "//= link #{theme}/application.js\n" %>
-<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/images\n" %>
-<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/fonts\n" %>
-<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/videos\n" %>
-<%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/audios\n" %>
-<% end %>
+  <% Dir.glob("#{Rails.application.templates_path}/*") do |f| %>
+  <% theme = f.split('/')[-1].strip %>
+  <%= "//= link #{theme}/ltr/application.css\n" %>
+  <%= "//= link #{theme}/rtl/application.css\n" %>
+  <%= "//= link #{theme}/application.js\n" %>
+  <%= "//= link faalis/simple.js\n" %>
+
+  <%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/images\n" %>
+  <%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/fonts\n" %>
+  <%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/videos\n" %>
+  <%= "//= link_tree ../../../#{Rails.application.template_relative_path}/#{theme}/assets/audios\n" %>
+  <% end %>
 
 //= link faalis/dashboard/manifest.js
 //= link_tree ../images
