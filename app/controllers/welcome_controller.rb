@@ -3,14 +3,14 @@ class WelcomeController < ApplicationController
   end
 
   def not_found
-    p = params[:failed_path].colorize(:blue)
-    f = params[:format].colorize(:blue)
+    p = params.fetch(:failed_path, '').colorize(:blue)
+    f = params.fetch(:format, '').colorize(:blue)
 
     msg = "  [WARN] ROUTES: No route match for '".colorize(:yellow) +
       p + "' format: '".colorize(:yellow) + f + "'.".colorize(:yellow)
 
     logger.warn msg
-    head 204
+    head 404
   end
 
   private
