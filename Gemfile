@@ -24,9 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   gem 'yellowen-misc'
-  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'minitest-rails', '3.0.0.rc1' #github: 'blowmage/minitest-rails', branch: 'rails5'
   gem 'guard'
@@ -67,7 +65,7 @@ end
 
 gem 'jquery-turbolinks'
 gem 'paperclip'
-gem 'pg'
+
 #gem 'devise', '~>4.0.0.beta1'
 gem 'devise', :github => 'plataformatec/devise'
 gem 'pundit', :github => 'elabs/pundit'
@@ -109,3 +107,13 @@ end
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'liquid-rails', path: '../liquid-rails'
 gem 'ionicons-rails', path: '../ionicons-rails'
+
+platform :jruby do
+  gem 'activerecord-jdbc-adapter', github: 'jruby/activerecord-jdbc-adapter', branch: 'rails-5'
+  gem 'activerecord-jdbcpostgresql-adapter'
+  gem 'jdbc-postgres'
+end
+
+platform :ruby do
+  gem 'pg'
+end

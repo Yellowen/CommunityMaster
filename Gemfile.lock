@@ -8,14 +8,25 @@ GIT
 
 GIT
   remote: git://github.com/elabs/pundit.git
-  revision: 58eda659d44a2e9d5e022fd23cc0f65bad7f7d82
+  revision: c3f2d09a0e67e868449e4d53301dfdc819004032
   specs:
     pundit (1.1.0)
       activesupport (>= 3.0.0)
 
 GIT
+  remote: git://github.com/jruby/activerecord-jdbc-adapter.git
+  revision: d9076e990cb294c72067f8a17b129dfc6c885002
+  branch: rails-5
+  specs:
+    activerecord-jdbc-adapter (1.3.20)
+      activerecord (>= 2.2)
+    activerecord-jdbcpostgresql-adapter (1.3.20)
+      activerecord-jdbc-adapter (~> 1.3.20)
+      jdbc-postgres (>= 9.1)
+
+GIT
   remote: git://github.com/mbleigh/acts-as-taggable-on.git
-  revision: dde41a4d0d14e0f5b57c685265f68545383f70fa
+  revision: c6e2c3d0acb33097561088516d94db0948c8aac5
   specs:
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
@@ -82,7 +93,7 @@ PATH
     faalis-blog (0.3.0)
       faalis (> 2)
       faalis-tags
-      redcarpet
+      kramdown
       site_framework
 
 PATH
@@ -104,8 +115,8 @@ PATH
   specs:
     faalis-page (2.1.1)
       faalis
+      kramdown
       rails-assets-bootstrap-treeview
-      redcarpet
       site_framework
 
 PATH
@@ -114,7 +125,7 @@ PATH
     faalis-shop (0.2.0)
       faalis (> 2)
       faalis-tags
-      redcarpet
+      kramdown
       site_framework
 
 PATH
@@ -197,12 +208,6 @@ GEM
       jquery-rails
       jquery-ui-rails
       momentjs-rails
-      rails-assets-admin-lte (~> 2.3.2)
-      rails-assets-bootstrap-daterangepicker
-      rails-assets-bootstrap-rtl
-      rails-assets-jquery-icheck
-      rails-assets-jquery-knob
-      rails-assets-jquery-sparkline
       select2-rails
     airbrussh (1.0.2)
       sshkit (>= 1.6.1, != 1.7.0)
@@ -211,24 +216,21 @@ GEM
       rake (>= 10.4, < 12.0)
     ansi (1.5.0)
     arel (7.0.0)
-    ast (2.2.0)
+    ast (2.3.0)
     autoprefixer-rails (6.3.6.2)
       execjs
-    awesome_print (1.6.1)
-    bcrypt (3.1.11)
+    awesome_print (1.7.0)
+    bcrypt (3.1.11-java)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     bootstrap3-datetimepicker-rails (4.17.37)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
-    byebug (9.0.5)
     callsite (0.0.11)
     cane (3.0.0)
       parallel
@@ -248,7 +250,7 @@ GEM
       capistrano
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
-    capistrano-rails (1.1.6)
+    capistrano-rails (1.1.7)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capybara (2.7.1)
@@ -267,8 +269,6 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     code_analyzer (0.4.5)
       sexp_processor
-    codemirror-rails (5.11)
-      railties (>= 3.0, < 5)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -278,14 +278,13 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     colorize (0.7.7)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.2-java)
     connection_pool (2.2.0)
     database_cleaner (1.5.3)
-    debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
     fabrication (2.15.2)
-    ffi (1.9.10)
+    ffi (1.9.10-java)
     font-awesome-rails (4.6.3.0)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
@@ -309,7 +308,7 @@ GEM
       guard (>= 2.10.0)
       guard-compat (~> 1.1)
     guard-compat (1.2.1)
-    guard-minitest (2.4.4)
+    guard-minitest (2.4.5)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
     hashie (3.4.4)
@@ -318,6 +317,7 @@ GEM
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jdbc-postgres (9.4.1206)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -327,12 +327,14 @@ GEM
       turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (1.8.3)
+    json (1.8.3-java)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    launchy (2.4.3)
+    kramdown (1.11.1)
+    launchy (2.4.3-java)
       addressable (~> 2.3)
+      spoon (~> 0.0.1)
     liquid (3.0.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -352,7 +354,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.0)
-    mini_portile2 (2.0.0)
     minitest (5.9.0)
     minitest-around (0.3.2)
       minitest (~> 5.0)
@@ -386,9 +387,8 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
-    nio4r (1.2.1)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nio4r (1.2.1-java)
+    nokogiri (1.6.8-java)
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -403,25 +403,20 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    parallel (1.8.0)
-    parser (2.3.1.1)
+    parallel (1.9.0)
+    parser (2.3.1.2)
       ast (~> 2.2)
-    pg (0.18.4)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    polyamorous (1.3.0)
-      activerecord (>= 3.0)
     powerpack (0.1.1)
-    pry (0.10.3)
+    pry (0.10.3-java)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.4.0)
-      byebug (~> 9.0)
-      pry (~> 0.10)
+      spoon (~> 0.0)
     pry-doc (0.8.0)
       pry (~> 0.9)
       yard (~> 0.8)
@@ -489,18 +484,6 @@ GEM
       json
       require_all
       ruby-progressbar
-    rails_db (1.1.1)
-      codemirror-rails
-      font-awesome-rails
-      jquery-rails
-      kaminari
-      launchy
-      rails (>= 3.1.0)
-      ransack
-      sass
-      sass-rails
-      simple_form
-      terminal-table
     railties (5.0.0.rc1)
       actionpack (= 5.0.0.rc1)
       activesupport (= 5.0.0.rc1)
@@ -508,19 +491,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
-    rake (11.1.2)
-    ransack (1.7.0)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.2)
+    rake (11.2.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    redcarpet (3.3.4)
     require_all (1.3.3)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
@@ -543,19 +519,16 @@ GEM
       thor (~> 0.14)
     sexp_processor (4.7.0)
     shellany (0.0.1)
-    simple_form (3.2.1)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
-    slim-rails (3.0.1)
-      actionmailer (>= 3.1, < 5.0)
-      actionpack (>= 3.1, < 5.0)
-      activesupport (>= 3.1, < 5.0)
-      railties (>= 3.1, < 5.0)
+    slim-rails (3.1.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
+    spoon (0.0.4)
+      ffi
     spring (1.7.1)
     sprockets (4.0.0.beta2)
       concurrent-ruby (~> 1.0)
@@ -568,10 +541,9 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     temple (0.7.7)
-    terminal-table (1.5.2)
     thor (0.19.1)
-    thread_safe (0.3.5)
-    tilt (2.0.4)
+    thread_safe (0.3.5-java)
+    tilt (2.0.5)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -581,17 +553,16 @@ GEM
     unicode-display_width (1.0.5)
     warden (1.2.6)
       rack (>= 1.0)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.4-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yard (0.8.7.6)
-    yellowen-misc (0.3.0)
+    yellowen-misc (0.4.0)
       annotate
       awesome_print
       better_errors
-      binding_of_caller
       hirb
       meta_request
       method_source
@@ -600,19 +571,19 @@ GEM
       quiet_assets
       rack-mini-profiler
       rails_best_practices
-      rails_db
       rubocop
       ruby-lint
 
 PLATFORMS
-  ruby
+  java
 
 DEPENDENCIES
   active_record_query_trace
+  activerecord-jdbc-adapter!
+  activerecord-jdbcpostgresql-adapter
   acts-as-taggable-on!
   amd!
   bcrypt (~> 3.1.7)
-  byebug
   capistrano
   capistrano-bundler
   capistrano-linked-files
@@ -639,6 +610,7 @@ DEPENDENCIES
   guard-minitest
   ionicons-rails!
   jbuilder (~> 2.0)
+  jdbc-postgres
   jquery-rails
   jquery-turbolinks
   launchy
@@ -650,7 +622,6 @@ DEPENDENCIES
   paperclip
   pg
   poltergeist
-  pry-byebug
   pry-rails
   pundit!
   quiet_assets
