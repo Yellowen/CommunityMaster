@@ -48,6 +48,7 @@ module Concerns
         'Assets::StylesheetLinkTag',
         'Assets::JavascriptIncludeTag',
         'Assets::JavascriptIncludeTheme',
+        'Assets::LogoTag',
         'Site::SiteTitleTag',
         'Site::SettingsTag',
         'Utils::PageDirectionTag',
