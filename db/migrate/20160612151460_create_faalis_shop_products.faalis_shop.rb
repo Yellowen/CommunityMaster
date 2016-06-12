@@ -12,6 +12,7 @@ class CreateFaalisShopProducts < ActiveRecord::Migration
       t.boolean :private
       t.text :description
       t.string :permalink
+      t.float :tax
 
       t.timestamps null: false
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519121221) do
+ActiveRecord::Schema.define(version: 20160609143309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20160519121221) do
     t.string   "title"
     t.text     "description"
     t.string   "permalink"
-    t.boolean  "lock",         default: true
+    t.boolean  "lock",         default: false
     t.boolean  "members_only", default: false
     t.uuid     "parent_id"
     t.uuid     "user_id"
@@ -174,9 +174,9 @@ ActiveRecord::Schema.define(version: 20160519121221) do
   end
 
   create_table "faalis_shop_order_items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.integer  "product_id"
     t.integer  "quantity"
     t.integer  "total"
+    t.uuid     "product_id"
     t.uuid     "user_id"
     t.uuid     "order_id"
     t.datetime "created_at", null: false
@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(version: 20160519121221) do
     t.boolean  "lock"
     t.boolean  "private"
     t.text     "description"
+    t.string   "permalink"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.uuid     "user_id"
