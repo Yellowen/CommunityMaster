@@ -42,7 +42,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-minitest'
   gem 'guard-cane'
-  gem 'rack-livereload'
   gem 'quiet_assets'
   gem 'colorize'
   gem 'active_record_query_trace'

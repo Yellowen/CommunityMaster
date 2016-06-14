@@ -82,7 +82,7 @@ PATH
     faalis-blog (0.3.0)
       faalis (> 2)
       faalis-tags
-      redcarpet
+      kramdown
       site_framework
 
 PATH
@@ -104,8 +104,8 @@ PATH
   specs:
     faalis-page (2.1.1)
       faalis
+      kramdown
       rails-assets-bootstrap-treeview
-      redcarpet
       site_framework
 
 PATH
@@ -114,7 +114,7 @@ PATH
     faalis-shop (0.2.0)
       faalis (> 2)
       faalis-tags
-      redcarpet
+      kramdown
       site_framework
 
 PATH
@@ -331,6 +331,7 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kramdown (1.11.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     liquid (3.0.6)
@@ -433,8 +434,6 @@ GEM
       json
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
-    rack-livereload (0.3.16)
-      rack
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
     rack-test (0.6.3)
@@ -502,7 +501,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    redcarpet (3.3.4)
     require_all (1.3.3)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
@@ -628,7 +626,6 @@ DEPENDENCIES
   pry-rails
   pundit!
   quiet_assets
-  rack-livereload
   rails (= 5.0.0.rc1)
   rails-assets-admin-lte!
   rails-assets-bootstrap-daterangepicker!
