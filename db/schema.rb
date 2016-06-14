@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609143309) do
+ActiveRecord::Schema.define(version: 20160614081718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,7 +187,6 @@ ActiveRecord::Schema.define(version: 20160609143309) do
 
   create_table "faalis_shop_orders", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "status"
-    t.float    "tax"
     t.uuid     "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -198,14 +197,15 @@ ActiveRecord::Schema.define(version: 20160609143309) do
   create_table "faalis_shop_products", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.float    "price"
-    t.integer  "category_id"
     t.boolean  "lock"
     t.boolean  "private"
     t.text     "description"
     t.string   "permalink"
+    t.float    "tax"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.uuid     "user_id"
+    t.uuid     "category_id"
     t.uuid     "site_id"
     t.index ["site_id"], name: "index_faalis_shop_products_on_site_id", using: :btree
   end
